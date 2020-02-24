@@ -25,13 +25,51 @@ public class CustomerUserDetails implements UserDetails {
 		   ArrayList<SimpleGrantedAuthority> auth=new ArrayList<SimpleGrantedAuthority>(); 
 		   for(int i=0; i<list.size(); i++)
 		   {
-			   auth.add(new SimpleGrantedAuthority(list.get(i).getAuth()));
+			   auth.add(new SimpleGrantedAuthority(list.get(i).getMember_auth()));
 		   }
 		
 		return auth;
 	}
 
 	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return dto.getMember_pwd();
+	}
+
+
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return dto.getMember_name();
+	}
+    //사용하지 않을꺼라서 false 그대로 냅둔(enabled는 필요없음)
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/*@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return dto.getUserpwd();
@@ -65,6 +103,6 @@ public class CustomerUserDetails implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return dto.isEnabled();
-	}
+	}*/
 
 }

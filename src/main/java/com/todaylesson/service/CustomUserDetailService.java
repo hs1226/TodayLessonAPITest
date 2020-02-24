@@ -19,7 +19,7 @@ public class CustomUserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		MemberDTO dto=     mapper.getUserById(userid);
+		MemberDTO dto=mapper.getUserById(userid);
 		if(dto==null)
 			 throw new UsernameNotFoundException(userid);
 		

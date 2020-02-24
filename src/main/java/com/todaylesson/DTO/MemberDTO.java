@@ -1,5 +1,7 @@
 package com.todaylesson.DTO;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +29,5 @@ public class MemberDTO {
 	private String member_key;
 	private String member_value;
 	private String member_img;
-	
+	private List<Member_AuthDTO> authList;
 }

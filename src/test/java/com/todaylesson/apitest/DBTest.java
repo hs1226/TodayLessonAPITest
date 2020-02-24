@@ -1,4 +1,4 @@
-package com.test.todaylesson;
+package com.todaylesson.apitest;
 
 import static org.junit.Assert.assertNotNull;
 

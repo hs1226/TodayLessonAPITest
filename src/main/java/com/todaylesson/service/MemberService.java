@@ -21,8 +21,8 @@ public class MemberService {
 	@Transactional
 	public int insert(MemberDTO dto)
 	{
-       String changepwd= encoder.encode(dto.getUserpwd());
-       dto.setUserpwd(changepwd);
+       String changepwd= encoder.encode(dto.getMember_pwd());
+       dto.setMember_pwd(changepwd);
 		mapper.insertMember(dto);
 		int r=mapper.insertMemberSub(dto);
 		return r;
