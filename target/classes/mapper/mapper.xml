@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.todaylesson.Mapper.MemberMapper">
+	<resultMap type="com.test.todaylesson.vo.MemberVO" id="memberMap">
+	  <result property="userid" column="member_id"/> 
+	  <result property="userpwd" column="member_pwd"/> 
+	  <result property="username" column="member_name"/>
+	 <!-- <result property="enabled" column="enabled"/>     쓸수있는 아이디인지 아닌지... -->
+	  <collection property="authList" resultMap="authMap"/> 
+	</resultMap> 
+	  <resultMap type="com.test.todaylesson.vo.AuthVo"  id="authMap"> 
+	    <result property="userid" column="userid"/> 
+	    <result property="auth" column="auth"/> 
+	  </resultMap>
+
+	<insert id="insertMember"
+		parameterType="com.test.todaylesson.vo.MemberVO">
+		insert into test_member(userid, userpwd, username, enabled)
+		values(#{userid}, #{userpwd}, #{username}, #{enabled})
+	</insert>
+	<insert id="insertMemberSub" parameterType="com.test.todaylesson.vo.MemberVO">
+		
+		<!-- ORACLE용 쿼리 (insert all) -->
+<!-- 		insert all
+		<foreach collection="authList" item="item" separator=" " close="select * from dual">
+			into test_auth(
+			            userid
+			            ,auth)
+			values(
+			       #{item.userid}
+			      , #{item.auth}
+			      )
+		</foreach> -->
+		
+		<!-- mysql용 다중insert -->		
+		insert into test_auth(
+			            userid
+			            ,auth)
+			            values
+		<foreach collection="authList" item="item" separator=", ">
+			
+			(
+			       #{item.userid}
+			      , #{item.auth}
+			      )
+		</foreach> 
+		
+		
+		
+	</insert>
+
+    <select id="getUserById" parameterType="string" resultMap="memberMap">
+         select  test_member.userid, userpwd, username,enabled, auth
+         from test_member left outer join test_auth
+         on test_member.userid=test_auth.userid
+         where test_member.userid=#{userid}
+         
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+

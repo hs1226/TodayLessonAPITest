@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+<security:http use-expressions="true">
+
+  <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>  <!-- 관리자 -->
+  <security:intercept-url pattern="/senior" access="hasRole('ROLE_SENIOR')"/>  <!-- 시니어 -->
+  <security:intercept-url pattern="/member" access="isAuthenticated()"/>  <!-- 로그인한 사람 -->
+  <security:intercept-url pattern="/all" access="permitAll"/>
+  <security:access-denied-handler error-page="/error"/>
+ 
+  <security:form-login  login-page="/customlogin"  />
+  <security:logout  logout-success-url="/customlogin" logout-url="/logout" 
+  invalidate-session="true"  delete-cookies="id"/>
+  <security:remember-me  remember-me-cookie="id" token-validity-seconds="300"/>
+  
+ </security:http>
+
+<bean name="passwordEncoder" 
+class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+
+<security:authentication-manager>
+
+<security:authentication-provider user-service-ref="customerService">
+   <security:password-encoder ref="passwordEncoder"></security:password-encoder>
+ </security:authentication-provider>
+ 
+</security:authentication-manager>
+
+</beans>
