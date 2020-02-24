@@ -56,7 +56,7 @@
          select  m.userid, userpwd, username, auth
          from member m left outer join member_auth a
          on member.user=member_auth.userid
-         where member.user=#{userid}
+         where member.userid=#{userid}
          
     </select>
 
