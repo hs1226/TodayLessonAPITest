@@ -24,7 +24,7 @@ public class TodayLessonController {
 		 return "/yi_member/yi_member";
 	 }
 		 
-		 @RequestMapping("/all")
+		 @RequestMapping("/alluser")
 		 public String all()
 		 {
 			 return "/yi_member/yi_all";
