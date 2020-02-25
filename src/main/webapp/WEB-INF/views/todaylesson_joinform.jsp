@@ -17,27 +17,63 @@
 <h2>회원가입</h2>
 <form method="post" action="/joinresult">
 <label>아이디</label>
-<input type="text" name="id" placeholder="아이디">
-<button type="button" class="btn btn-primary">중복확인</button><br>
+<input type="text" name="id" id="id" required="required" placeholder="아이디">
+<button type="button" class="btn btn-primary" id="multicheck">중복확인</button><br>
+<div id="checkMsg"></div>
+
 <label>비밀번호</label>
-<input type="password" name="pwd" placeholder="비밀번호"><br>
+<input type="password" name="pwd" id="pwd" required="required" placeholder="비밀번호"><br>
 <label>비밀번호확인</label>
-<input type="password" name="pwd2" placeholder="비밀번호확인"><br>
+<input type="password" name="pwdcheck" id="pwdcheck" required="required" placeholder="비밀번호확인"
+onkeyup="passwordCheckFunction();"
+><br>
+<div class="alert alert-success" id="alert-success">비밀번호가
+						일치합니다.</div>
+					<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지
+						않습니다.</div>
+
 <label>이름</label>
-<input type="text" name="name" placeholder="이름"><br>
+<input type="text" name="name" id="name" placeholder="이름"><br>
 <label>생년월일</label>
-<input type="date" name="birth" ><br>
+<input type="date" name="birth" id="birth" ><br>
 <label>연락처</label>
-<input type="text" name="phone" >
+<input type="text" name="phone" id="phone" >
 <button type="button" class="btn btn-primary">본인인증</button><br>
-<label>주소</label><br>
-<input type="text" name="zipcode" placeholder="우편번호">
-<button type="button" class="btn btn-primary">우편번호찾기</button><br>
-<input type="text" name="zipcode" placeholder="도로명주소"><br>
-<input type="text" name="zipcode" placeholder="상세주소"><br>
+<label for='addr'>주소</label>
+					<div class='form-row'>
+						<div class='col-5'>
+							<input type="text" id="sample4_postcode" name='zipcode'
+								placeholder="우편번호" class='form-control'>
+						</div>
+						<input type="button" onclick="sample4_execDaumPostcode()"
+							value="우편번호 찾기" readonly="readonly" class='btn btn-primary'><br>
+					</div>
+					<div class='juso'>
+						<input type="text" id="sample4_roadAddress" placeholder="도로명주소"
+							name="roadaddr" readonly="readonly" class="form-control">
+						<input type="radio" id='roadAddress' name='addrselect' value="0"
+							required><label for="addrselect">도로명주소 선택</label> <br>
+
+						<input type="text" id="sample4_jibunAddress" placeholder="지번주소"
+							name="jibunaddr" readonly="readonly" class="form-control">
+						<input type="radio" id='jibunAddress' name='addrselect' value="1"><label
+							for="addrselect">지번주소 선택</label><br>
+					</div>
+					<span id="guide" style="color: #999"></span> <label
+						for="detailaddr">상세주소</label> <input type="text" id="detailaddr"
+						name="detailaddr" class="form-control"> 
+
+
+
+
+<!-- <input type="text" name="zipcode" placeholder="도로명주소"><br>
+<input type="text" name="zipcode" placeholder="상세주소"><br> -->
+
+
+
 <label>닉네일</label>
 <input type="text" name="nick" placeholder="닉네임"><br>
-<button type="button" class="btn btn-primary">회원가입</button><br>
+<button type="submit" id="submit" class="btn btn-primary">회원가입</button><br>
 
 </form>
 
