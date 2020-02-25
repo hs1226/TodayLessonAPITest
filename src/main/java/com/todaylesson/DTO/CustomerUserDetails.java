@@ -40,7 +40,7 @@ public class CustomerUserDetails implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return dto.getMember_name();
+		return dto.getMember_id();
 	}
     //사용하지 않을꺼라서 false 그대로 냅둔(enabled는 필요없음)
 	@Override

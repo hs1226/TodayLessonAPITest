@@ -4,15 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.todaylesson.Mapper.MemberMapper">
 	<resultMap type="com.todaylesson.DTO.MemberDTO" id="memberMap">
-	  <result property="userid" column="member_id"/> 
-	  <result property="userpwd" column="member_pwd"/> 
-	  <result property="username" column="member_name"/>
+	  <result property="member_id" column="member_id"/> 
+	  <result property="member_pwd" column="member_pwd"/> 
+	  <result property="member_name" column="member_name"/>
 	 <!-- <result property="enabled" column="enabled"/>     쓸수있는 아이디인지 아닌지... -->
 	  <collection property="authList" resultMap="authMap"/> 
-	</resultMap> 
+	</resultMap>  <!-- 쿼리문이랑 같은 이름 -->
 	  <resultMap type="com.todaylesson.DTO.Member_AuthDTO"  id="authMap"> 
-	    <result property="userid" column="member_id"/> 
-	    <result property="auth" column="member_auth"/> 
+	    <result property="member_id" column="member_id"/> 
+	    <result property="member_auth" column="member_auth"/> 
 	  </resultMap>
     <!-- TEST 회원가입 -->  
 	<insert id="insertMember" parameterType="com.todaylesson.DTO.MemberDTO">
@@ -52,7 +52,7 @@
          select  member.member_id, member_pwd, member_name, member_auth
          from member left outer join member_auth 
          on member.member_id=member_auth.member_id
-         where member.member_id=#{userid}
+         where member.member_id=#{member_id}
          
     </select>
 

@@ -22,6 +22,7 @@ public class CustomUserDetailService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String member_id) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		MemberDTO dto=mapper.getUserById(member_id);
+		System.out.println(member_id);
 		if(dto==null)
 			 throw new UsernameNotFoundException(member_id);
 		

@@ -10,35 +10,32 @@ public class TodayLessonController {
 	 @RequestMapping("/admin")
 		public String admin()
 		{
-			return "/yi_member/yi_admin";
+			return "/todaylesson_sec/todaylesson_sec_admin";
 		}
 	 
 	 @RequestMapping("/senior")
 	 public String senior() {
-		 return "/yi_member/hs_senior"; 
+		 return "/todaylesson_sec/todaylesson_sec_senior"; 
 	 }
 		 
 	 @RequestMapping("/member")
 	 public String member()
 	 {
-		 return "/yi_member/yi_member";
+		 return "/todaylesson_sec/todaylesson_sec_member";
 	 }
 		 
 		 @RequestMapping("/alluser")
 		 public String all()
 		 {
-			 return "/yi_member/yi_all";
+			 return "/todaylesson_sec/todaylesson_sec_all";
 		 }
-		
-
-		 
+			 
 		 @RequestMapping("/error")
 		 public String error()
 		 {
-			  return "/yi_error";
+			  return "/todaylesson_sec__error";
 		 }
-		 
-		 
+		 		 
 		 @RequestMapping("/customlogin")
 		 public String login(String error, String logout, Model model)
 		 {
@@ -49,7 +46,7 @@ public class TodayLessonController {
 				 model.addAttribute("logout","logout");
 			 
 			 
-			 return "/yi_login";
+			 return "/todaylesson_sec_login";
 		 }
 		 
 		 //jsp에 넣어줘서 필요없음
