@@ -8,7 +8,7 @@ public class Speetch_TestController {
 
 	@RequestMapping("test")
 	public String boardWrite() {
-		  return "speechtest";
+		  return "jy_speechtest";
 		}
 	
 }

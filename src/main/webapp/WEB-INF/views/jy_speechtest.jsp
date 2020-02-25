@@ -92,11 +92,14 @@ ul li {
       WebRTC 관련 예제로 Speech Recognition API를 활용하면 더 재밌는 기능을 만들 수 있습니다.<br />
       아래 버튼을 누른 후 마이크에 이야기를 해보세요. (마이크와 가까울수록 인식률이 좋습니다)
     </p>
+
     <div id="result">
+    
       <span class="final" id="final_span"></span>
       <span class="interim" id="interim_span"></span>
+      
     </div>
-    <button id="btn-mic" class="off">마이크 <span></span></button>
+    <button id="btn-mic" class="off"> 마이크 <span></span></button>
     <button id="btn-tts">Text to speech</button>
     <!-- 
 		<div>
