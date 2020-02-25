@@ -13,7 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member_AuthDTO {
-
+	
 	private String member_auth;
 	private String member_id;
+	
+	
 }

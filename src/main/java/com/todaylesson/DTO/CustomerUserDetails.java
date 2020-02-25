@@ -37,8 +37,6 @@ public class CustomerUserDetails implements UserDetails {
 		return dto.getMember_pwd();
 	}
 
-
-
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
@@ -48,25 +46,25 @@ public class CustomerUserDetails implements UserDetails {
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	/*@Override
