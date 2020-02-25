@@ -49,10 +49,10 @@
 	</insert>
     <!-- 시큐리티 나중에 냅둠 위에는 바꿔야함-->
     <select id="getUserById" parameterType="string" resultMap="memberMap">
-         select  m.userid, userpwd, username, auth
-         from member m left outer join member_auth a
-         on m.userid=a.userid
-         where m.userid=#{userid}
+         select  member.member_id, member_pwd, member_name, member_auth
+         from member left outer join member_auth 
+         on member.member_id=member_auth.member_id
+         where member.member_id=#{userid}
          
     </select>
 

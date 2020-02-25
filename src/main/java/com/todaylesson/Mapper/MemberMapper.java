@@ -8,6 +8,6 @@ import com.todaylesson.DTO.MemberDTO;
 public interface MemberMapper {
    public int insertMember(MemberDTO dto);
    public int insertMemberSub(MemberDTO dto);
-   public MemberDTO getUserById(String userid);	
+   public MemberDTO getUserById(String member_id);	
 	
 }
