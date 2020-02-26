@@ -45,7 +45,7 @@ public class MemberInsertTest {
 			  // a1의 권한은 admin과 user. auth가 2개이므로 service.insert(vo) == 2 가 되면 true.
 			  
 			  MemberDTO dto=new MemberDTO(); 
-			  dto.setMember_no(2);
+			  dto.setMember_no(1);
 			  dto.setMember_id("a1");
 			  dto.setMember_pwd("a1");
 			  dto.setMember_name("ha");
