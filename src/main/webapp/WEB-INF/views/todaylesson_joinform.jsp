@@ -6,7 +6,7 @@
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript" ></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -77,7 +77,7 @@ onkeyup="passwordCheckFunction();"
 
 </form>
 
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script>
 		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -162,39 +162,24 @@ onkeyup="passwordCheckFunction();"
 		});
 		
 		$('#multicheck').click(function() {
-			var csrfHeaderName ="${_csrf.headerName}";
-			var csrfTokenValue = "${_csrf.token}"; 
-			
 			if($("#id").val() == ""){
 				alert("아이디를 입력하세요");
 				return;
 			}
-			
 			$.ajax({
-				
-				
-				type :'POST',
-				url : 'idCheck',
+				type :'post',
+				url : 'idCheck.do',
 				data : {"id" : $('#id').val()},
-				beforeSend : function(xhr){
-					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-				},
 				success : function(data) {
-					console.log("data : "+ data);
-					if(data == 1){
+					if(data == 0){
 						$('#checkMsg').html('<p style="color:blue">사용가능</p>');
-						$("#submit").removeAttr("disabled");
                 	}
                 	else{
                     	$('#checkMsg').html('<p style="color:red">사용불가능</p>');
-                    	$("#submit").attr("disabled", "disabled");
-                    	$('#id').val('');
-  	                  $('#id').focus();
                 	}
             	},
 				error : function(data) {
 					console.log(data);
-					console.log("ajax error");
 				}
 			});
 		});
