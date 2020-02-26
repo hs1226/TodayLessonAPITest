@@ -46,10 +46,10 @@
    .hs_us_mainheader_center_senior button{
       -webkit-appearance: none;
       background: -webkit-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%); 
-       background: linear-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
-      /* 추후 맞는 색상으로 변경하기
-       background: -webkit-gradient(to right, #ffbbba 0%, #fceeb5 50%, #ee786e 100%);
-      background: linear-gradient(to right, #ffbbba 0%, #fceeb5 50%, #ee786e 100%); */
+      background: linear-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
+      /* 추후 버튼 색상변경 
+       background: -webkit-gradient(to right, rgb(53, 54, 58) 0%, #fceeb5 50%, rgb(224, 62, 82) 100%);
+      background: linear-gradient(to right, rgb(53, 54, 58) 0%, #fceeb5 50%, rgb(224, 62, 82) 100%);  */
       background-size: 500%;
       border: none;
       border-radius: 5rem;
