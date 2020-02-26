@@ -1,4 +1,3 @@
-
 package com.todaylesson.apitest;
 
 import org.springframework.stereotype.Controller;
