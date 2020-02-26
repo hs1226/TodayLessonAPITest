@@ -6,10 +6,10 @@
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+	
 <title>Insert title here</title>
 
 </head>
@@ -76,7 +76,7 @@ onkeyup="passwordCheckFunction();"
 <button type="submit" id="submit" class="btn btn-primary">회원가입</button><br>
 
 </form>
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script>
@@ -162,27 +162,43 @@ onkeyup="passwordCheckFunction();"
 		});
 		
 		$('#multicheck').click(function() {
+			var csrfHeaderName ="${_csrf.headerName}";
+			var csrfTokenValue = "${_csrf.token}"; 
+			
 			if($("#id").val() == ""){
 				alert("아이디를 입력하세요");
 				return;
 			}
+			
 			$.ajax({
-				type :'post',
-				url : 'idCheck.do',
+				
+				
+				type :'POST',
+				url : 'idCheck',
 				data : {"id" : $('#id').val()},
+				beforeSend : function(xhr){
+					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+				},
 				success : function(data) {
-					if(data == 0){
+					console.log("data : "+ data);
+					if(data == 1){
 						$('#checkMsg').html('<p style="color:blue">사용가능</p>');
+						$("#submit").removeAttr("disabled");
                 	}
                 	else{
                     	$('#checkMsg').html('<p style="color:red">사용불가능</p>');
+                    	$("#submit").attr("disabled", "disabled");
+                    	$('#id').val('');
+  	                  $('#id').focus();
                 	}
             	},
 				error : function(data) {
 					console.log(data);
+					console.log("ajax error");
 				}
 			});
 		});
+
 	</script>
 
 
