@@ -22,13 +22,13 @@
 <!-- Bootstrap -->
 
 <style type="text/css">
-   @font-face{
+/*    @font-face{
       font-family: 'DX모던고딕RoundBold'
       src : url("resources/FONT/DX모던고딕RoundBold.woff);
    }
    body {
 	  font-family: "DX모던고딕RoundBold";
-   }  
+   }   */
 </style>
 
 </head>
