@@ -24,16 +24,11 @@ public class TodayLessonController {
 		 return "/todaylesson_sec/todaylesson_sec_member";
 	 }
 		 
-		 /*@RequestMapping("/alluser")
+		 @RequestMapping("/alluser")
 		 public String all()
 		 {
 			 return "/todaylesson_sec/todaylesson_sec_all";
-		 }*/
-	 
-	    @RequestMapping("/alluser")
-		public String UserHome() {
-			return "/TodayLesson_UserPage/hs_us_main";
-		}
+		 }
 			 
 		 @RequestMapping("/error")
 		 public String error()
@@ -60,6 +55,12 @@ public class TodayLessonController {
 			 return "/todaylesson_joinform";
 		 }
 		 
+		 @RequestMapping("/ej_join")
+		 public String joinej()
+		 {
+			 return "/ej_joinform";
+		 }
+		 
 		 //jsp에 넣어줘서 필요없음
 		/* @RequestMapping("/logout")
 		 public String logout()
@@ -68,3 +69,4 @@ public class TodayLessonController {
 		 }*/
 	
 }
+
