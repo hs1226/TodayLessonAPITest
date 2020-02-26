@@ -3,7 +3,7 @@
    body{
 	  margin: 0px auto;
    }
-   /* header 상단부분 컬리 및 위치 잡아줌 */
+   /* header 상단부분 컬리 */
    .hs_us_mainheader_topdiv{
 	  background-color: rgb(53, 54, 58);
 	  padding: 5px;
@@ -11,31 +11,103 @@
       height : 45px;
 	  display: inline-block;
    }
+   /* header 상단부분 width 비율 100 : 80 */
    .hs_us_mainheader_topdiv_width{
 	  margin : auto;
 	  width: 80%;
    }
+   /* header 상단부분 지금당신의취미를 찾아보세요 */
    .hs_us_mainheader_topdiv span{
 	  color: white;
 	  font-weight: 700;
    }
-   .hs_us_mainheader_topdiv_cartloginsearch{
+   /* header 상단부분  장바구니 로그인 회원가입 묶은거*/
+   .hs_us_mainheader_topdiv_cartloginsearchbox{
 	  float: right;
    }
-   .hs_us_mainheader_topdiv_cartloginsearch a{
+   /* header 상단부분  장바구니 로그인 회원가입 a tag */
+   .hs_us_mainheader_topdiv_cartloginsearchbox a{
 	  text-decoration: none;
 	  color: white;
 	  font-weight: 700;
 	  margin-left: 10px; 
    }
+   /* header 중간 로고 시니어 지원 div */
    .hs_us_mainheader_center{
-	   
+	  margin : auto;
+	  width: 80%;
+	  text-align: center;
    }
+   /* header 중간 로고 시니어 지원 a tag */
    .hs_us_mainheader_center a{
       text-decoration: none;	
    }
-   .hs_us_mainheader_center a{
-      text-decoration: none;	
+   /* header 중간 시니어지원 button */
+   .hs_us_mainheader_center_senior button{
+      -webkit-appearance: none;
+      background: -webkit-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%); 
+       background: linear-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
+      /* 추후 맞는 색상으로 변경하기
+       background: -webkit-gradient(to right, #ffbbba 0%, #fceeb5 50%, #ee786e 100%);
+      background: linear-gradient(to right, #ffbbba 0%, #fceeb5 50%, #ee786e 100%); */
+      background-size: 500%;
+      border: none;
+      border-radius: 5rem;
+      /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); */
+      color: #fff;
+      cursor: pointer;
+      font: 1em Raleway, sans-serif;
+      font-weight:800;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      height: 3rem;
+      letter-spacing: .05em;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      width: 12rem; 
+      float : right;
+      margin: 62px 0px 0px 0px;  
+   }
+   .hs_us_mainheader_center_senior button:hover {
+      animation-name: gradient;
+      -webkit-animation-name: gradient;
+      animation-duration: 2s;
+      -webkit-animation-duration: s;
+      animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+   }
+   @keyframes gradient {
+      0% {
+         background-position: 0% 50%;
+      }
+      100% {
+         background-position: 100%;
+      }
+   }
+   /* header 중간 시니어지원 button */  
+   /* header nav 라인 */
+   .hs_us_mainheader_line{
+      width: 100%;
+      height: 1px;
+      background-color: rgb(224,224,224);
+      margin: 10px 0px;
+   }
+   /* header nav box */ 
+   .hs_us_mainheader_navbox{  
+      text-align: center;
+   }
+   /* header nav category */
+   .hs_us_mainheader_navbox nav a{
+      text-decoration: none;
+      color: rgb(53, 54, 58);
+      margin:0px 35px 0px;
+      font-weight: 700;
    }
 /* 전체 공통적용 */
 

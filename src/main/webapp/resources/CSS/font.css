@@ -1,0 +1,9 @@
+@charset "utf-8";
+@font-face{
+	font-family: "DX모던고딕RoundBold"
+	src: url("resources/FONT/DX모던고딕RoundBold.woff"); 
+}
+body {
+	font-family: "DX모던고딕RoundBold";
+	margin: 0px auto;
+}

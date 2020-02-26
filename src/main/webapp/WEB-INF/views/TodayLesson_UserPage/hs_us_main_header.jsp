@@ -17,7 +17,7 @@
       <div class="hs_us_mainheader_topdiv">
          <div class="hs_us_mainheader_topdiv_width">
             <span>지금 당신의 취미를 찾아보세요</span>
-            <span class="hs_us_mainheader_topdiv_cartloginsearch">
+            <span class="hs_us_mainheader_topdiv_cartloginsearchbox">
                <a href=""><i class="fa fa-shopping-cart"></i></a>
                <sec:authorize access="isAnonymous()">  <!-- 모든사람들이 다 -->
                   <a href="/customlogin">로그인 </a><span style="margin-left: 10px;">|</span><a href="">회원가입</a>
@@ -40,17 +40,17 @@
       </div>
       <div class="hs_us_mainheader_center">
          <a href="/alluser">
-            <img src="resources/IMG/User_Logo.png" alt="User_Logo" style="width: 200px;">
+            <img src="resources/IMG/User_Logo.png" alt="User_Logo" style="width: 11%;">
          </a>
-         <span>
+         <span class="hs_us_mainheader_center_senior">
             <a href="">
-               <button>시니어지원</button>
+               <button>시니어지원 🌴</button>
             </a>
          </span>
       </div>
-      <div></div>
-      <div>
-         <nav>
+      <div class="hs_us_mainheader_line"></div>
+      <div class="hs_us_mainheader_navbox">
+         <nav >
             <a href="">얼리버드</a>
             <a href="">전체레슨</a>
             <a href="">자유게시판</a>
@@ -58,7 +58,7 @@
             <a href="">이벤트</a>
          </nav>
       </div>
-      <div></div>
+      <div class="hs_us_mainheader_line"></div>
    </div>
 </body>
 </html>
