@@ -1,54 +1,75 @@
 @charset "utf-8";
-body{
-	margin: 0px auto;
-}
-.hs_us_mainheader_topdiv{
-	background-color: rgb(53, 54, 58);
-	padding: 10px;
-	width: 100%;
-	display: inline-block;
-}
-.hs_us_mainheader_topdiv_width{
-	width: 90%;
-}
-.hs_us_mainheader_topdiv span{
-	color: white;
-	font-weight: 700;
-}
-.hs_us_mainheader_topdiv_cartloginsearch{
-	text-align: right;
-}
+/* 전체 공통적용 */
+   body{
+	  margin: 0px auto;
+   }
+   /* header 상단부분 컬리 및 위치 잡아줌 */
+   .hs_us_mainheader_topdiv{
+	  background-color: rgb(53, 54, 58);
+	  padding: 5px;
+	  width: 100%;
+      height : 45px;
+	  display: inline-block;
+   }
+   .hs_us_mainheader_topdiv_width{
+	  margin : auto;
+	  width: 80%;
+   }
+   .hs_us_mainheader_topdiv span{
+	  color: white;
+	  font-weight: 700;
+   }
+   .hs_us_mainheader_topdiv_cartloginsearch{
+	  float: right;
+   }
+   .hs_us_mainheader_topdiv_cartloginsearch a{
+	  text-decoration: none;
+	  color: white;
+	  font-weight: 700;
+	  margin-left: 10px; 
+   }
+   .hs_us_mainheader_center{
+	   
+   }
+   .hs_us_mainheader_center a{
+      text-decoration: none;	
+   }
+   .hs_us_mainheader_center a{
+      text-decoration: none;	
+   }
+/* 전체 공통적용 */
 
-/*  모바일  */
-@media screen and (max-width:767px){
+/*  모바일버전만 적용  */
+   @media screen and (max-width:767px){
+      body{
+         background-color:yellowgreen;
+         width: 100%;
+         font-size: 0.85em;
+      }
+   }
+/*  모바일버전만 적용  */
 
-    body{
-        background-color:yellowgreen;
-        width: 100%;
-        font-size: 0.85em;
-    }
-}
+/*  태블릿버전만 적용  */
+   @media screen and (min-width:768px) and (max-width:1023px){
+      body{
+         width: 100%;
+         background-color:lightblue;
+      }
+   }
+/*  태블릿버전만 적용  */
 
-/*  태블릿  */
-@media screen and (min-width:768px) and (max-width:1023px){
-    body{
-        width: 100%;
-        background-color:lightblue;
-    }
-}
+/*  pc버전만 적용  */
+   @media screen and (min-width:1024px){
+      body{
+           
+       /* background-color: lightpink; */
+      }
 
-/*  pc  */
-@media screen and (min-width:1024px){
-
-    body{
-        
-       background-color: lightpink;
-    }
-
-}
-
-img {
-	max-width: 1s0%;
-	height: auto;
-	width: auto\9; /* ie8 */
-}
+   }
+/*  pc버전만 적용  */
+/* 사용하는지 알아봐보기 */
+   img {
+	  max-width: 100%;
+	  height: auto;
+	  width: auto\9; /* ie8 */
+   }
