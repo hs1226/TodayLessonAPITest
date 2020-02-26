@@ -180,7 +180,7 @@ onkeyup="passwordCheckFunction();"
 				},
 				success : function(data) {
 					console.log("data : "+ data);
-					if(data == 1){
+					if(data == 0){
 						$('#checkMsg').html('<p style="color:blue">사용가능</p>');
 						$("#submit").removeAttr("disabled");
                 	}
