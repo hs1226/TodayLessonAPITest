@@ -24,11 +24,11 @@ public class TodayLessonController {
 		 return "/todaylesson_sec/todaylesson_sec_member";
 	 }
 		 
-		 @RequestMapping("/alluser")
+		 /*@RequestMapping("/alluser")
 		 public String all()
 		 {
 			 return "/todaylesson_sec/todaylesson_sec_all";
-		 }
+		 }*/
 			 
 		 @RequestMapping("/error")
 		 public String error()
