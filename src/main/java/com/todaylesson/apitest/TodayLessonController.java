@@ -49,6 +49,12 @@ public class TodayLessonController {
 			 return "/todaylesson_sec_login";
 		 }
 		 
+		 @RequestMapping("/join")
+		 public String join()
+		 {
+			 return "/todaylesson_joinform";
+		 }
+		 
 		 //jsp에 넣어줘서 필요없음
 		/* @RequestMapping("/logout")
 		 public String logout()
