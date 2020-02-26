@@ -21,14 +21,18 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
+<!--icon-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!--icon-->
+
 <style type="text/css">
-/*    @font-face{
+   @font-face{
       font-family: 'DX모던고딕RoundBold'
       src : url("resources/FONT/DX모던고딕RoundBold.woff);
    }
    body {
 	  font-family: "DX모던고딕RoundBold";
-   }   */
+   }    
 </style>
 
 </head>
