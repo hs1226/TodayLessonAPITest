@@ -147,6 +147,15 @@
             <version>${org.spring-security-version}</version>
         </dependency>
 		<!-- spring security 추가 -->
+		
+		<!-- 메일보내기  lib -->
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+		<!-- 메일보내기 lib -->
 				
 		<!-- AspectJ -->
 		<dependency>
