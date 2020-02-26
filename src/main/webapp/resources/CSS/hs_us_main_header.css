@@ -1,0 +1,54 @@
+@charset "utf-8";
+body{
+	margin: 0px auto;
+}
+.hs_us_mainheader_topdiv{
+	background-color: rgb(53, 54, 58);
+	padding: 10px;
+	width: 100%;
+	display: inline-block;
+}
+.hs_us_mainheader_topdiv_width{
+	width: 90%;
+}
+.hs_us_mainheader_topdiv span{
+	color: white;
+	font-weight: 700;
+}
+.hs_us_mainheader_topdiv_cartloginsearch{
+	text-align: right;
+}
+
+/*  모바일  */
+@media screen and (max-width:767px){
+
+    body{
+        background-color:yellowgreen;
+        width: 100%;
+        font-size: 0.85em;
+    }
+}
+
+/*  태블릿  */
+@media screen and (min-width:768px) and (max-width:1023px){
+    body{
+        width: 100%;
+        background-color:lightblue;
+    }
+}
+
+/*  pc  */
+@media screen and (min-width:1024px){
+
+    body{
+        
+       background-color: lightpink;
+    }
+
+}
+
+img {
+	max-width: 1s0%;
+	height: auto;
+	width: auto\9; /* ie8 */
+}

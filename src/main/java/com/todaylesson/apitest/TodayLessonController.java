@@ -27,7 +27,8 @@ public class TodayLessonController {
 		 @RequestMapping("/alluser")
 		 public String all()
 		 {
-			 return "/todaylesson_sec/todaylesson_sec_all";
+			 //return "/todaylesson_sec/todaylesson_sec_all";
+			 return "/TodayLesson_UserPage/hs_us_main";
 		 }
 			 
 		 @RequestMapping("/error")
