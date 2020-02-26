@@ -3,10 +3,15 @@ package com.todaylesson.apitest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TodayLessonController {
 
+	
+	
 	 @RequestMapping("/admin")
 		public String admin()
 		{
@@ -55,6 +60,19 @@ public class TodayLessonController {
 		 {
 			 return "/todaylesson_joinform";
 		 }
+		 
+		 /*id중복 체크*/
+			@ResponseBody 
+			 @RequestMapping(value="/idCheck", method= RequestMethod.POST)
+			 public int idCheck(@RequestParam("id") String member_id,Model model)
+			 {
+				  System.out.println(member_id);
+				  int row = loginService.idCheck(member_id);
+				  model.addAttribute("data",row);
+				  return row;
+			 }
+		 
+		 
 		 
 		 @RequestMapping("/ej_join")
 		 public String joinej()
