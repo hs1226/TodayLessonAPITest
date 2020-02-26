@@ -55,6 +55,12 @@ public class TodayLessonController {
 			 return "/todaylesson_joinform";
 		 }
 		 
+		 @RequestMapping("/ej_join")
+		 public String joinej()
+		 {
+			 return "/ej_joinform";
+		 }
+		 
 		 //jsp에 넣어줘서 필요없음
 		/* @RequestMapping("/logout")
 		 public String logout()
