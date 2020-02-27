@@ -6,4 +6,5 @@ public interface LoginService {
 	int idCheck(String member_id);
 
 	String get_searchId(HashMap<String, Object>  map);
+
 }

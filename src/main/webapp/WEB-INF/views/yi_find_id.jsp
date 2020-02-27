@@ -21,7 +21,7 @@ function search_check(num) {
 		document.getElementById("searchI").style.display = "none";
 		document.getElementById("searchP").style.display = "";
 	}
-}
+} 
 
 
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 		
 		$('#background_modal').show();
 		
-		// 아이디 & 스토어 값 저장하기 위한 변수
+		// 아이디 
 		var idV = "";
 		// 아이디 값 받고 출력하는 ajax
 
@@ -59,6 +59,7 @@ $(document).ready(function() {
 		
 		
 	});
+	
 	// 2. 모달창 닫기 버튼
 	$('.close').on('click', function() {
 		$('#background_modal').hide();
@@ -84,7 +85,7 @@ $(document).ready(function() {
 <div class="full">
 		<div class="container">
 			<div class="area_inputs wow fadeIn">
-				<div class="sub_title font-weight-bold text-white">
+				<div class="sub_title font-weight-bold">
 					<h3>아이디/비밀번호 찾기</h3>
 					<p>인증된 이메일만 정보 찾기가 가능합니다 :)</p>
 				</div>
@@ -101,13 +102,13 @@ $(document).ready(function() {
 					<div class="form-group">
 						<label for="inputName_1">이름</label>
 						<div>
-							<input type="text" class="form-control" id="inputName_1" name="inputName_1" placeholder="ex) 갓민수">
+							<input type="text" class="form-control" id="inputName_1" name="inputName_1" placeholder="ex) 갓혜미">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputPhone_1">휴대폰번호</label>
 						<div>
-							<input type="text" class="form-control" id="inputPhone_1" name="inputPhone_1" placeholder="ex) 01077779999">
+							<input type="text" class="form-control" id="inputPhone_1" name="inputPhone_1" placeholder="ex) 010-7777-7777">
 						</div>
 					</div>
 					<div class="form-group">
@@ -119,7 +120,7 @@ $(document).ready(function() {
 					<div class="form-group">
 						<label for="inputId">아이디</label>
 						<div>
-							<input type="text" class="form-control" id="inputId" name="inputId_2" placeholder="ex) godmisu">
+							<input type="text" class="form-control" id="inputId_2" name="inputId_2" placeholder="ex) godmisu">
 						</div>
 					</div>
 					<div class="form-group">
@@ -147,7 +148,7 @@ $(document).ready(function() {
 			<h2 id="id_value"></h2>
 		<br>
 		<button type="button" id="pwSearch_btn" class="btn peach-gradient btn-rounded waves-effect">
-		<i class="fa fa-envelope"></i>비밀번호 찾기</button>
+<!-- 		<i class="fa fa-envelope"></i>비밀번호 찾기</button> -->
 	</div>
 </div>
 

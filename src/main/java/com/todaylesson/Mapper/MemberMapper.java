@@ -12,6 +12,7 @@ public interface MemberMapper {
    public int insertMemberSub(MemberDTO dto);
    public MemberDTO getUserById(String member_id);
 public int idCheck(String member_id);
-public String searchId(HashMap<String, Object> map);	
+public String searchId(HashMap<String, Object> map);
+
 	
 }

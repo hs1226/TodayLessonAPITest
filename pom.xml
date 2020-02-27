@@ -153,12 +153,12 @@
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4</version>
+            <version>1.4.7</version>
         </dependency>
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context-support</artifactId>
-		    <version>4.1.7.RELEASE</version>
+		    <version>${org.springframework-version}</version>
 		</dependency>
 		<!-- 메일보내기 lib -->
 				
