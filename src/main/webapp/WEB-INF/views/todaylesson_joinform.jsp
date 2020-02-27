@@ -230,6 +230,9 @@ onkeyup="passwordCheckFunction();"
  
 <script>
 /* 인증번호 */
+	$("#alert-success2").hide();
+	$("#alert-danger2").hide();
+	
     $("#sendSMS").on('click',function(){
        
         var result = Math.floor(Math.random() * 1000000)+100000;
@@ -253,6 +256,7 @@ onkeyup="passwordCheckFunction();"
  
      </script>
   <script>
+
 /* 	$( */function smscheckfunction() {
 			$("#alert-success2").hide();
 			$("#alert-danger2").hide();
