@@ -61,14 +61,16 @@
     </bean> --> 
     
    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-      <property name="host" value="smtp.naver.com" />
-      <property name="port" value="465" />
-      <property name="username" value="todaylesson@naver.com" />
-      <property name="password" value="today404!" />
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="k.zoey94@gmail.com" />
+      <property name="password" value="*jk940925" />
       <property name="javaMailProperties">
          <props>
+            <prop key="mail.transport.protocol">smtp</prop>
             <prop key="mail.smtp.auth">true</prop>
             <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.debug">true</prop>
          </props>
       </property>
    </bean>
