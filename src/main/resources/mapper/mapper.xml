@@ -15,15 +15,29 @@
 	    <result property="member_auth" column="member_auth"/> 
 	  </resultMap>
     <!-- TEST 회원가입 -->  
-	<insert id="insertMember" parameterType="com.todaylesson.DTO.MemberDTO">
+	<!-- <insert id="insertMember" parameterType="com.todaylesson.DTO.MemberDTO">
 		insert into member(member_no, member_id, member_pwd, member_name, 
 		                   member_birth, member_phone, member_addr, member_zipcode, 
 		                   member_email, member_nick, member_img)
 		                   values(#{member_no}, #{member_id}, #{member_pwd}, #{member_name}, 
 		                          #{member_birth}, #{member_phone}, #{member_addr}, #{member_zipcode},
 		                          #{member_email}, #{member_nick}, #{member_img})
+	</insert> -->
+	
+	 <!-- 진짜 회원가입 -->
+	<insert id="insertMember" parameterType="com.todaylesson.DTO.MemberDTO">
+			<selectKey resultType="integer" keyProperty="member_no" order="BEFORE">
+		select max(member_no)+1 as member_no
+		from member
+		</selectKey>
+		insert into member(member_no, member_id, member_pwd, member_name, 
+		                   member_birth, member_phone, member_addr, member_zipcode, 
+		                   member_email, member_nick, member_img, member_join_date)
+		                   values(#{member_no}, #{member_id}, #{member_pwd}, #{member_name}, 
+		                          #{member_birth}, #{member_phone}, #{member_addr}, #{member_zipcode},
+		                          #{member_email}, #{member_nick}, 'user',now())
 	</insert>
-	<!-- TEST AUTH -->
+	<!-- TEST AUTH --> <!-- 진짜도 동일 -->
 	<insert id="insertMemberSub" parameterType="com.todaylesson.DTO.MemberDTO">
 		
 		<!-- ORACLE용 쿼리 (insert all) -->
