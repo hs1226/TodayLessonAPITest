@@ -101,6 +101,7 @@
    /* header nav box */ 
    .hs_us_mainheader_navbox{  
       text-align: center;
+      width: 88%;
    }
    /* header nav category */
    .hs_us_mainheader_navbox nav a{
@@ -136,7 +137,6 @@
            
        /* background-color: lightpink; */
       }
-
    }
 /*  pc버전만 적용  */
 /* 사용하는지 알아봐보기 */
