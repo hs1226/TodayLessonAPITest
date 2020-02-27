@@ -122,19 +122,11 @@ public class TodayLessonController {
 				mailSender.mailSendWithPassword(member_id,member_email,request);
 				
 				return "/userSearchPassword";
-				
+				                               
 				
 			}
 			
-			
-			
-			
-			
-			
 
-			
-
-		 
 		 
 		 @RequestMapping("/ej_join")
 		 public String joinej()
@@ -148,8 +140,6 @@ public class TodayLessonController {
 		 {
 			 return "/yi_logout";
 		 }*/
-		 
-			 
-		 
+
 }
 
