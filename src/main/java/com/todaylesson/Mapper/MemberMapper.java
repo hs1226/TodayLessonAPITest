@@ -13,6 +13,7 @@ public interface MemberMapper {
    public MemberDTO getUserById(String member_id);
 public int idCheck(String member_id);
 public String searchId(HashMap<String, Object> map);
+public void searchPassword(String member_id, String member_email, String key);
 
 	
 }

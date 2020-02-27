@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.junit.runner.Request;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,12 +16,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.todaylesson.service.LoginService;
+import com.todaylesson.service.MailSendService;
 
 @Controller
 public class TodayLessonController {
 
 	@Resource(name="loginService")
 	private LoginService loginService;
+	
+	@Autowired
+	private MailSendService mailSender;
+	
 	
 	 @RequestMapping("/admin")
 		public String admin()
@@ -107,18 +113,19 @@ public class TodayLessonController {
 			
 			
 			
-			/*pwd 찾기
+			/*pwd 찾기*/
 			@RequestMapping(value="/searchPassword",method=RequestMethod.GET)
 			@ResponseBody
 			public String passwordSearch(@RequestParam("inputId_2")String member_id,
 					@RequestParam("inputEmail_2") String member_email
 					,HttpServletRequest request) {
-				mailsender.mailSendWithPassword(member_id,member_email,request);
+				mailSender.mailSendWithPassword(member_id,member_email,request);
 				
 				return "/userSearchPassword";
 				
+				
 			}
-			*/
+			
 			
 			
 			
@@ -142,11 +149,7 @@ public class TodayLessonController {
 			 return "/yi_logout";
 		 }*/
 		 
-		 
-		 
-		 
-		 
-		 
+			 
 		 
 }
 

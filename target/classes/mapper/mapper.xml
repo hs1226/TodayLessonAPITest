@@ -69,6 +69,12 @@ where member_id=#{member_id}
         where member_name = #{member_name} and member_phone = #{member_phone}
 	</select>
 
+<!-- 회원 임시 비밀번호-->
+	<update id="searchPassword" parameterType="Map">
+		update member
+		set member_pwd = #{param3} 
+		where member_id = #{param1} and member_email = #{param2}
+	</update>
 
 </mapper>
 
