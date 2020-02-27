@@ -151,13 +151,13 @@ public class TodayLessonController {
 			
 			
 			/*pwd Ã£±â*/
-			@RequestMapping(value="/searchPassword",method=RequestMethod.GET)
+			@RequestMapping(value="/searchPassword",method=RequestMethod.POST)
 			@ResponseBody
 			public String passwordSearch(@RequestParam("inputId_2")String member_id,
 					@RequestParam("inputEmail_2") String member_email
 					,HttpServletRequest request) {
 				mailSender.mailSendWithPassword(member_id,member_email,request);
-				
+				System.out.println(member_email);
 				return "/userSearchPassword";
 				                               
 				

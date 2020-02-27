@@ -21,8 +21,6 @@ public class MailSendService {
 
 	@Autowired
 	private JavaMailSender mailSender;
-/*	@Resource(name="sqlSession")
-	private SqlSessionTemplate sqlSession;*/
 	@Autowired
 	private MemberMapper mapper;//userDao
 	
@@ -60,11 +58,6 @@ public class MailSendService {
 		public void mailSendWithPassword(String member_id, String member_email, HttpServletRequest request) {
 			// TODO Auto-generated method stub
 			String key = getKey(false, 6);
-	/*		mapper = sqlSession.getMapper(MemberMapper.class);*/
-			
-			// È¸¿ø ÀÌ¸§ ²¨³»´Â ÄÚµå
-			/*MemberDTO dto = mapper.userNameInfo(member_id);
-			String member_name = dto.getMember_name();*/
 					
 			MimeMessage mail = mailSender.createMimeMessage();
 			String htmlStr = "<h2>¾È³çÇÏ¼¼¿ä '"+ member_id +"' ´Ô</h2><br><br>" 

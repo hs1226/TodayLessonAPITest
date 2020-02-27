@@ -60,6 +60,45 @@ $(document).ready(function() {
 		
 	});
 	
+	
+	
+	
+	$('#searchBtn2').click(function() {
+		//시큐리티 csrf토큰
+		var csrfHeaderName ="${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}"; 
+		
+		$('#background_modal').show();
+		
+		// 아이디 
+		var idV = "";
+		// 아이디 값 받고 출력하는 ajax
+
+			$.ajax({
+				type:"POST",
+				url:"${pageContext.request.contextPath}/searchPassword?inputId_2="
+						+$('#inputId_2').val()+"&inputEmail_2="+$('#input_2').val(),
+						beforeSend : function(xhr){
+							xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+						},
+				success:function(data){
+					if(data == 0){
+						$('#id_value').text("회원 정보를 확인해주세요!");	
+					} else {
+						$('#id_value').text("이메일 전송완료");
+						// 아이디값 별도로 저장
+						idV = data;
+					}
+				}
+			});
+		
+		
+	});
+	
+	
+	
+	
+	
 	// 2. 모달창 닫기 버튼
 	$('.close').on('click', function() {
 		$('#background_modal').hide();
