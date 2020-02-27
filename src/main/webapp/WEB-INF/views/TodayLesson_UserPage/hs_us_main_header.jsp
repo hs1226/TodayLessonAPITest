@@ -50,7 +50,7 @@
       </div>
       <div class="hs_us_mainheader_line"></div>
       <div class="hs_us_mainheader_navbox">
-         <nav >
+         <nav>
             <a href="">얼리버드</a>
             <a href="">전체레슨</a>
             <a href="">자유게시판</a>
