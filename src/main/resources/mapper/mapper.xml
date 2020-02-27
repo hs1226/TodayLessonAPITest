@@ -61,6 +61,14 @@ from member
 where member_id=#{member_id}
 
 </select>
+
+<!-- 아이디 찾기 -->
+	<select id="searchId" resultType="String" parameterType="HashMap">
+		select ifnull(member_id, 0)
+		from member
+        where member_name = #{member_name} and member_phone = #{member_phone}
+	</select>
+
 </mapper>
 
 

@@ -1,5 +1,7 @@
 package com.todaylesson.apitest;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -66,6 +68,12 @@ public class TodayLessonController {
 			 return "/todaylesson_joinform";
 		 }
 		 
+		 @RequestMapping("/findId")
+		 public String findId()
+		 {
+			 return "yi_find_id";
+		 }
+		 
 		 /*id중복 체크*/
 			@ResponseBody 
 			 @RequestMapping(value="/idCheck", method= RequestMethod.POST)
@@ -76,7 +84,27 @@ public class TodayLessonController {
 				  model.addAttribute("data",row);
 				  return row;
 			 }
-		 
+		 /*id 찾기*/
+			@ResponseBody
+			@RequestMapping(value = "/userSearch", method = RequestMethod.POST)
+			public String userIdSearch(@RequestParam("inputName_1") String member_name, 
+					@RequestParam("inputPhone_1") String member_phone) {
+				HashMap<String,Object> map=new HashMap<>();
+				System.out.println(member_name);
+				System.out.println(member_phone);
+				map.put("member_name", member_name);
+				map.put("member_phone", member_phone);
+				String result = loginService.get_searchId(map);
+				
+				System.out.println(result);
+
+				return result;
+			}
+		
+
+
+			
+
 		 
 		 
 		 @RequestMapping("/ej_join")

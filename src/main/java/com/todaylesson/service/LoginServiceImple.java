@@ -1,5 +1,7 @@
 package com.todaylesson.service;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,13 @@ public class LoginServiceImple implements LoginService {
 		
 		
 		return mapper.idCheck(member_id);
+	}
+
+	@Override
+	public String get_searchId(HashMap<String, Object> map) {
+		String result="";
+		result=mapper.searchId(map);
+		return result;
 	}
 
 }
