@@ -64,7 +64,7 @@
       <property name="host" value="smtp.naver.com" />
       <property name="port" value="587" />
       <property name="username" value="todaylesson" />
-      <property name="password" value="Wls404!" />
+      <property name="password" value="today404!" />
       <property name="javaMailProperties">
          <props>
             <prop key="mail.smtp.auth">true</prop>
