@@ -25,13 +25,16 @@
          <!-- 
                     모달창으로 만들꺼라서 로그인 모달창 만들때 이거 추가하기
            <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}" />
+           
+           
+           
           -->
 
          <!-- 로그인한 사람들만  -->
                <sec:authorize access="isAuthenticated()">
                   <form action="/logout" method='post'>
                      <input type="hidden"name="${_csrf.parameterName}"value="${_csrf.token}"/>  <!-- 이걸  main 페이지에 넣어서 구분을   -->
-                     <button>로그아웃</button>
+                     <a href="">마이페이지</a><span style="margin-left: 10px;">|</span><a href="">로그아웃</a>
                   </form>
                </sec:authorize>
                <a href=""><i class='fas fa-search'></i></a>
