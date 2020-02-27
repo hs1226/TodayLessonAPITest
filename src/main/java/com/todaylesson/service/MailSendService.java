@@ -2,6 +2,7 @@ package com.todaylesson.service;
 
 import java.util.Random;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -20,8 +21,9 @@ public class MailSendService {
 
 	@Autowired
 	private JavaMailSender mailSender;
+/*	@Resource(name="sqlSession")
+	private SqlSessionTemplate sqlSession;*/
 	@Autowired
-	private SqlSessionTemplate sqlSession;
 	private MemberMapper mapper;//userDao
 	
 	// 이메일 난수 만드는 메서드
@@ -58,7 +60,7 @@ public class MailSendService {
 		public void mailSendWithPassword(String member_id, String member_email, HttpServletRequest request) {
 			// TODO Auto-generated method stub
 			String key = getKey(false, 6);
-			mapper = sqlSession.getMapper(MemberMapper.class);
+	/*		mapper = sqlSession.getMapper(MemberMapper.class);*/
 			
 			// 회원 이름 꺼내는 코드
 			/*MemberDTO dto = mapper.userNameInfo(member_id);
