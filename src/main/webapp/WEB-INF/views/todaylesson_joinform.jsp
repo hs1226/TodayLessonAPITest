@@ -34,6 +34,7 @@
     value="${_csrf.token}" />
 </form>
 <form method="post" action="/joinresult">
+<input type="hidden" name="phone" value="${to }"/>
 <label>아이디</label>
 <input type="text" name="id" id="id" required="required" placeholder="아이디">
 <button type="button" class="btn btn-primary" id="multicheck">중복확인</button><br>
@@ -66,6 +67,9 @@ onkeyup="passwordCheckFunction();"
 <input type="text" name="numcheck" id="numcheck" required="required" placeholder="인증번호 입력" onkeyup="smscheckfunction()"><br>
 <div class="alert alert-success" id="alert-success2">인증번호가 일치합니다.</div>
 <div class="alert alert-danger" id="alert-danger2">인증번호가 일치하지않습니다.</div> --%>
+ 
+ <label>e-mail</label>
+<input type="email" name="email" id="email" placeholder="example@email.com"><br>
  
 <label for='addr'>주소</label>
 					<div class='form-row'>
@@ -102,7 +106,9 @@ onkeyup="passwordCheckFunction();"
 <label>닉네일</label>
 <input type="text" name="nick" placeholder="닉네임"><br>
 <button type="submit" id="submit" class="btn btn-primary">회원가입</button><br>
-
+<!-- 시큐리티 토큰 -->
+    <input type="hidden" name="${_csrf.parameterName}"
+    value="${_csrf.token}" />
 </form>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

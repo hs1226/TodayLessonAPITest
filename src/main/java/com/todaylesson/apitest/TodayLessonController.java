@@ -1,6 +1,8 @@
 package com.todaylesson.apitest;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,14 +18,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.todaylesson.DTO.MemberDTO;
+import com.todaylesson.DTO.Member_AuthDTO;
 import com.todaylesson.service.LoginService;
 import com.todaylesson.service.MailSendService;
+import com.todaylesson.service.MemberService;
 
 @Controller
 public class TodayLessonController {
 
    @Resource(name="loginService")
    private LoginService loginService;
+   
+	@Resource(name="memberService")
+	private MemberService memberService;
    
    @Autowired
    private MailSendService mailSender;
@@ -74,8 +82,9 @@ public class TodayLessonController {
        }
        
        @RequestMapping("/join")
-       public String join(HttpServletRequest request, Model model) throws Exception {
-
+       public String join(HttpServletRequest request, Model model) throws Exception {	   
+    	   
+    	   /*은지 sms인증*/
               String api_key = "NCSRC0XSPD85BDRL"; //위에서 받은 api key를 추가
               String api_secret = "2LVQYEMQFBIBEG8WVXKQOWQ6KPDDVJQ9";  //위에서 받은 api secret를 추가
 
@@ -115,6 +124,58 @@ public class TodayLessonController {
               }
  return "/todaylesson_joinform";
        }
+       
+       @RequestMapping("/joinresult")
+		 public String joinresult(@RequestParam("id") String member_id
+				 				, @RequestParam("pwd") String member_pwd
+				 				, @RequestParam("name") String member_name
+				 				, @RequestParam("birth") String member_birth
+				 				, @RequestParam("email") String member_email
+				 				, @RequestParam("phone") String member_phone
+				 				, @RequestParam("zipcode") int member_zipcode
+				 				, @RequestParam("nick") String member_nick
+				
+	 				, @RequestParam("addrselect") int addrselect
+	 				,@RequestParam("roadaddr") String roadaddr
+	 				,@RequestParam("jibunaddr") String jibunaddr
+	 				, @RequestParam("detailaddr") String detailaddr
+				 				,  MemberDTO dto,Model model)
+		 {
+
+			 
+			 dto.setMember_id(member_id);
+			 dto.setMember_pwd(member_pwd);
+			 dto.setMember_name(member_name);
+			 dto.setMember_birth(member_birth);
+			 dto.setMember_email(member_email);
+			 dto.setMember_phone(member_phone);
+			 dto.setMember_zipcode(member_zipcode);
+			 dto.setMember_nick(member_nick);
+			 
+			//전체주소(도로or지번주소 + 상세주소) addr에 셋팅
+			 String fulladdr= "";	
+			 if(addrselect==0)
+					{fulladdr=roadaddr;}
+					else
+					{fulladdr=jibunaddr;}
+			 
+			 
+			 dto.setMember_addr(fulladdr+" "+detailaddr);
+			 
+			 List<Member_AuthDTO> list=new ArrayList<>();
+			
+			 //auth를 list에 넣어서 dto에 셋팅
+			 list.add(new Member_AuthDTO("ROLE_USER",dto.getMember_id()));
+			 dto.setAuthList(list);
+			 
+			 
+			 int result=memberService.insert(dto);
+			 model.addAttribute("result",result);
+			 
+			 return "yi_joinresult";
+		 } 
+       
+       
        
        @RequestMapping("/findId")
        public String findId()
