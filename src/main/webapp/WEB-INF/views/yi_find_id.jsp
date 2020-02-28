@@ -13,7 +13,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script>
-function search_check(num) {
+//라디오버튼기능 주석으로 지웠음
+/* function search_check(num) {
 	if (num == '1') {
 		document.getElementById("searchP").style.display = "none";
 		document.getElementById("searchI").style.display = "";	
@@ -21,7 +22,7 @@ function search_check(num) {
 		document.getElementById("searchI").style.display = "none";
 		document.getElementById("searchP").style.display = "";
 	}
-} 
+}  */
 
 
 
@@ -127,10 +128,9 @@ $(document).ready(function() {
 		
 			<div class="area_inputs wow fadeIn">
 				<div class="sub_title font-weight-bold">
-					<h3>아이디/비밀번호 찾기</h3>
-					<p>인증된 이메일만 정보 찾기가 가능합니다 :)</p>
+					<h3>아이디 찾기</h3>
 				</div>
-				<div style="margin-bottom: 10px;"
+<!-- 				<div style="margin-bottom: 10px;"
 					class="custom-control custom-radio custom-control-inline">
 					<input type="radio" class="custom-control-input" id="search_1" name="search_total" onclick="search_check(1)" checked="checked">
 					<label class="custom-control-label font-weight-bold"	for="search_1">아이디 찾기</label>
@@ -138,7 +138,7 @@ $(document).ready(function() {
 				<div class="custom-control custom-radio custom-control-inline">
 					<input type="radio" class="custom-control-input" id="search_2" name="search_total" onclick="search_check(2)"> 
 					<label class="custom-control-label font-weight-bold" for="search_2">비밀번호 찾기</label>
-				</div>
+				</div> -->
 				<div id="searchI">
 					<div class="form-group">
 						<label for="inputName_1">이름</label>
