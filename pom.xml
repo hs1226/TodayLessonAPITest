@@ -169,15 +169,7 @@
             <version>2.2</version>
         </dependency>
         <!--은지 sms보내기  -->
-		
-		<!-- 은지 페이스북 로그인  -->
-		<dependency>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-facebook</artifactId>
-            <version>2.0.3.RELEASE</version>
-        </dependency>
-		<!-- 은지 페이스북 로그인  -->
-				
+	
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
