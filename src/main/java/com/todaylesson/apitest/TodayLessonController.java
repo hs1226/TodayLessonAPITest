@@ -79,8 +79,8 @@ public class TodayLessonController {
              model.addAttribute("logout","logout");
           
           
-          //return "/TodayLesson_UserPage/hs_us_main";
-          return "/TodayLesson_UserPage/hs_us_main_sec_login";
+          return "/TodayLesson_UserPage/hs_us_main";
+          //return "/TodayLesson_UserPage/hs_us_main_sec_login";
        }
        
        @RequestMapping("/join")
