@@ -46,6 +46,13 @@ public class FindPasswordController {
 		return "hm_api_test";
 	}
 	
+	
+	@RequestMapping("/hmexceltest")
+	public String hmexceltest()
+	{
+		return "hm_exceltest";
+	}
+	
 	/*
 	
 	
