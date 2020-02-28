@@ -113,6 +113,20 @@
    }
 /* 전체 공통적용 */
 
+/* 로그인 modal  */
+   input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+   }
+   
+   
+
+/* 로그인 modal  */
+
 /*  모바일버전만 적용  */
    @media screen and (max-width:767px){
       body{

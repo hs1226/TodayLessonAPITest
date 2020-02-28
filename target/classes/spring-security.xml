@@ -7,13 +7,13 @@
 
 <security:http use-expressions="true">
 
-   <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>  <!-- 관리자 -->
-   <security:intercept-url pattern="/senior" access="hasRole('ROLE_SENIOR')"/>  <!-- 시니어 -->
-   <security:intercept-url pattern="/member" access="isAuthenticated()"/>  <!-- 로그인한 사람 -->
-   <security:intercept-url pattern="/alluser" access="permitAll"/>
+   <security:intercept-url pattern="/todaylessonadmin" access="hasRole('ROLE_ADMIN')"/>  <!-- 관리자 -->
+   <security:intercept-url pattern="/todaylessonsenior" access="hasRole('ROLE_SENIOR')"/>  <!-- 시니어 -->
+   <security:intercept-url pattern="/todaylessonmember" access="isAuthenticated()"/>  <!-- 로그인한 사람 -->
+   <security:intercept-url pattern="/todaylesson" access="permitAll"/>
    <security:access-denied-handler error-page="/error"/>
  
-   <security:form-login  login-page="/customlogin"  />
+   <security:form-login login-page="/customlogin"/>
    <security:logout  logout-success-url="/customlogin" logout-url="/logout" invalidate-session="true"  delete-cookies="id"/>
    <security:remember-me  remember-me-cookie="id" token-validity-seconds="300"/> 
   

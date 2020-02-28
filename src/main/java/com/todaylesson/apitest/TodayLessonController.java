@@ -37,25 +37,25 @@ public class TodayLessonController {
    private MailSendService mailSender;
    
    
-    @RequestMapping("/admin")
+    @RequestMapping("/todaylessonadmin")
       public String admin()
       {
          //return "/todaylesson_sec/todaylesson_sec_admin";
           return "TodayLesson_AdminPage/hs_ad_main";
       }
     
-    @RequestMapping("/senior")
+    @RequestMapping("/todaylessonsenior")
     public String senior() {
        return "/todaylesson_sec/todaylesson_sec_senior"; 
     }
        
-    @RequestMapping("/member")
+    @RequestMapping("/todaylessonmember")
     public String member()
     {
        return "/todaylesson_sec/todaylesson_sec_member";
     }
        
-       @RequestMapping("/alluser")
+       @RequestMapping("/todaylesson")
        public String all()
        {
           //return "/todaylesson_sec/todaylesson_sec_all";
@@ -70,15 +70,16 @@ public class TodayLessonController {
               
        @RequestMapping("/customlogin")
        public String login(String error, String logout, Model model)
-       {
-          if (error !=null)
+       { 
+    	   
+    	  if (error !=null)
              model.addAttribute("error", "Please check your ID or Password");
              
           if(logout !=null)
              model.addAttribute("logout","logout");
           
           
-          return "/todaylesson_sec_login";
+          return "/TodayLesson_UserPage/hs_us_main_sec_login";
        }
        
        @RequestMapping("/join")
