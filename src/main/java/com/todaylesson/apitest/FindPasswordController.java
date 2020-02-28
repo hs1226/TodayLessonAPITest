@@ -40,7 +40,11 @@ public class FindPasswordController {
 		return "/userSearchPassword";
 	}
 	
-	
+	@RequestMapping("/hmapitest")
+	public String hmapitest()
+	{
+		return "hm_api_test";
+	}
 	
 	/*
 	
