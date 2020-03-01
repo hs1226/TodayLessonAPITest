@@ -2,21 +2,25 @@ package com.todaylesson.apitest;
 
 import java.security.Principal;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.todaylesson.DTO.MemberDTO;
 import com.todaylesson.service.Hm_Us_MyManageService;
 import com.todaylesson.service.MailSendService;
 
@@ -99,7 +103,16 @@ public class FindPasswordController {
 	
 	
 	
-	
+	//관리자 - 회원관리(전체 리스트)
+	@RequestMapping("/admin_manage")
+	public String adminmembermanage(Model model)
+	{
+		
+		List<MemberDTO> list =hm_mymanageservice.adminmemberlist();
+		model.addAttribute("list",list);
+		return "hm_ad_user_memmanage";
+		
+	}
 	
 	
 	
