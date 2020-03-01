@@ -124,7 +124,7 @@ public class TodayLessonController {
                 System.out.println(result.get("code")); // REST API 에러코드
                 System.out.println(result.get("message")); // 에러메시지
               }
- return "/todaylesson_joinform";
+           return "/todaylesson_joinform";
        }
        
        @RequestMapping("/joinresult")
