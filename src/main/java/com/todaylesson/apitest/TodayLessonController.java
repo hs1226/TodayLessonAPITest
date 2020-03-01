@@ -79,9 +79,24 @@ public class TodayLessonController {
              model.addAttribute("logout","logout");
           
           
-          return "/TodayLesson_UserPage/hs_us_main";
+          return "/TodayLesson_UserPage/hs_us_main_sec_login";
           //return "/TodayLesson_UserPage/hs_us_main_sec_login";
        }
+       
+      /* @RequestMapping("/customlogin")
+       public void login(String error, String logout, Model model)
+       { 
+    	   
+    	  if (error !=null)
+             model.addAttribute("error", "Please check your ID or Password");
+             
+          if(logout !=null)
+             model.addAttribute("logout","logout");
+          
+          
+          //return "/TodayLesson_UserPage/hs_us_main_sec_login";
+       }*/
+       
        
        @RequestMapping("/join")
        public String join(HttpServletRequest request, Model model) throws Exception {	   
