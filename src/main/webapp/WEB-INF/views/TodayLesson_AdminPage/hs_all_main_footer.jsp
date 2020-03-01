@@ -7,9 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <div>
+   <div style="background-color:  rgb(53, 54, 58);">
       <div>
-      
+       <p>오늘의 레슨</p>
+       <p>오늘의 레슨</p>
+       <p>오늘의 레슨</p>
+       <p>오늘의 레슨</p>
+       <p>오늘의 레슨</p>
+       <p>오늘의 레슨</p>
+       <p>오늘의 레슨</p>
       </div>
    </div>
 </body>

@@ -36,7 +36,9 @@
       <jsp:include page="hs_ad_main_header.jsp"/>
    </header>
    <section>
-      
+      <aside>
+         <jsp:include page="hs_ad_main_asidenav.jsp"/>
+      </aside>
    </section>
    <footer>
       <jsp:include page="hs_all_main_footer.jsp"/>

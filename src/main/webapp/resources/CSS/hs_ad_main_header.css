@@ -4,20 +4,37 @@ body {
 }
 .hs_ad_mainheader_width{
 	width: 100%;	
+	padding: 30px;
 }
-.hs_ad_mainheader_bgcolor{
+.hs_ad_mainheader_namelogoutbox{
 	background-color: rgb(53, 54, 58);
-	text-align : center;
-	margin : auto;
+	
 }
 .hs_ad_mainheader_namelogout{
-	float: right;
+	float: right;	
 }
-
+.hs_ad_mainheader_logo_adminmode{
+	width: 80%;
+	/* text-align: center; */
+	margin: auto;
+}
 
 .hs_ad_mainheader_line{
 	width: 100%;
     height: 1px;
     background-color: rgb(224,224,224);
     margin: 0px 0px 10px;
+}
+.hs_ad_mainheader_navbox{
+	margin : auto;
+	text-align: center;
+    width: 88%;
+    padding-bottom: 10px;
+}
+.hs_ad_mainheader_navbox a{
+	 text-decoration: none;
+      color: rgb(53, 54, 58);
+      margin:0px 35px 0px;
+      font-weight: 700;
+     
 }
