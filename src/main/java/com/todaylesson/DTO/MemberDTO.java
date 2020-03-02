@@ -32,4 +32,6 @@ public class MemberDTO {
 	private String member_value;
 	private String member_img;
 	private List<Member_AuthDTO> authList;
+	
+	
 }

@@ -37,8 +37,7 @@ public class TodayLessonController {
    
     @RequestMapping("/todaylessonadmin")
       public String admin()
-      {
-         //return "/todaylesson_sec/todaylesson_sec_admin";
+      { 
           return "TodayLesson_AdminPage/hs_ad_main";
       }
     
