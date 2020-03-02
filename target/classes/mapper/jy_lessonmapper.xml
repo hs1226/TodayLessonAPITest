@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.todaylesson.Mapper.JY_US_LessonMapper">
+
+
+<select id="list" resultType="com.todaylesson.DTO.LessonDTO">
+
+select lesson_no, lesson_title, lesson_type, lesson_senior_title
+from lesson
+
+</select>
+
+
+<!-- 현재 실험 때문에 lesson썸넬 뺐음 -->
+
+<insert id="insert" parameterType="com.todaylesson.DTO.LessonDTO">
+
+insert into lesson(lesson_title, lesson_content,lesson_cost, 
+lesson_member_max,lesson_category,  
+lesson_register_date,lesson_open_period, lesson_close_period, lesson_number, 
+lesson_type, lesson_result, lesson_readno, lesson_junior_count,
+lesson_senior_title, lesson_senior_content, 
+lesson_zipcode, lesson_addr, lesson_lat, lesson_long, lesson_time)
+
+values(#{lesson_title},#{lesson_content},#{lesson_cost},
+#{lesson_member_max},#{lesson_category},
+sysdate(),#{lesson_open_period},#{lesson_close_period},#{lesson_number},
+#{lesson_type},0,0,0,
+#{lesson_senior_title},#{lesson_senior_content},
+#{lesson_zipcode},#{lesson_addr},#{lesson_lat},#{lesson_long},#{lesson_time})
+
+</insert>
+
+
+
+</mapper>

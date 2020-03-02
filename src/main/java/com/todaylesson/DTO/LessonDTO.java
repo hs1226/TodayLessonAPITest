@@ -20,7 +20,7 @@ public class LessonDTO {
 	private int lesson_cost;
 	private int lesson_member_max;
 	private int lesson_category;
-	private String lesson_thumb;
+	//private String lesson_thumb;
 	private String lesson_register_date;
 	private String lesson_open_period;
 	private String lesson_close_period;
@@ -49,7 +49,7 @@ public class LessonDTO {
 		this.lesson_cost = lesson_cost;
 		this.lesson_member_max = lesson_member_max;
 		this.lesson_category = lesson_category;
-		this.lesson_thumb = lesson_thumb;
+		//this.lesson_thumb = lesson_thumb;
 		this.lesson_open_period = lesson_open_period;
 		this.lesson_close_period = lesson_close_period;
 		this.lesson_number = lesson_number;
