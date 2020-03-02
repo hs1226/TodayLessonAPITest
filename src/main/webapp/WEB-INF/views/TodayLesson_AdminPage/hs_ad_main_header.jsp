@@ -14,23 +14,23 @@
 </head>
 <body>
    <div class="hs_ad_mainheader_width">
-      <div class="hs_ad_mainheader_bgcolor">
-         <div class="hs_ad_mainheader_namelogout">
-            <sec:authorize access="isAuthenticated()">
-               <form action="/logout" method='post'>
-                  <input type="hidden"name="${_csrf.parameterName}"value="${_csrf.token}"/>  <!-- 이걸  main 페이지에 넣어서 구분을   -->
-                  <a href="">올에오님(닉네임)</a><span style="margin-left: 10px;">|</span><a href="">로그아웃</a>
-               </form>
-            </sec:authorize>
-         </div>
+      <div class="hs_ad_mainheader_namelogoutbox">
+         <sec:authorize access="isAuthenticated()">
+            <form action="/logout" method='post'>
+               <input type="hidden"name="${_csrf.parameterName}"value="${_csrf.token}"/>  <!-- 이걸  main 페이지에 넣어서 구분을   -->
+               <div class="hs_ad_mainheader_namelogout">
+                  <a href="">올에오님(닉네임)</a><span style="margin-left: 10px;">|</span><a href="/logout">로그아웃</a>
+               </div>
+            </form>
+         </sec:authorize>
          <div class="hs_ad_mainheader_logo_adminmode">
-            <a>
-               <b>관리자모드</b>
-            </a>
             <a href="">
                <img src="resources/IMG/SN_AD_Logo.png" alt="SN_AD_Logo" style="width: 11%;">
             </a>
-         </div>
+            <a href="">
+               <b>관리자모드</b>
+            </a>
+        </div>
       </div>
       <div class="hs_ad_mainheader_line"></div>
       <div class="hs_ad_mainheader_navbox">

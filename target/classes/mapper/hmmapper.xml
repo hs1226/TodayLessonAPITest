@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.todaylesson.Mapper.Hm_Us_MyManageMapper">
+<select id="checkPwd" resultType="boolean" parameterType="HashMap">
+select member_id,member_pwd,member_name,member_nick,member_birth,member_zipcode,member_addr
+,member_phone,member_email
+from member
+where member_id = #{member_id} and member_pwd = #{member_pwd}
+</select>
+
+<select id="memberlist" resultType="com.todaylesson.DTO.MemberDTO">
+select member_no,member_id,member_name,member_nick,member_point,member_level,member_join_date
+from member
+order by member_no
+</select>
+</mapper>

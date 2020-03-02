@@ -1,18 +1,27 @@
 package com.todaylesson.apitest;
 
+import java.security.Principal;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.todaylesson.DTO.MemberDTO;
+import com.todaylesson.service.Hm_Us_MyManageService;
 import com.todaylesson.service.MailSendService;
 
 @Controller
@@ -27,6 +36,8 @@ public class FindPasswordController {
 		
 		return "hm_find_pw";
 	}
+	@Resource(name="hm_us_mymanage")
+	private Hm_Us_MyManageService hm_mymanageservice;
 	
 	@RequestMapping(value="/findPassword",method=RequestMethod.POST)
 	@ResponseBody
@@ -52,6 +63,60 @@ public class FindPasswordController {
 	{
 		return "hm_exceltest";
 	}
+	
+	//내 정보관리
+	@RequestMapping("/hm_us_mymanage")
+	public String hm_us_mymanage1()
+	{
+		
+		return "hm_us_mymanage";
+	}
+	
+	
+	//내정보관리 로그인된 아이디값을 시큐리티에서 가져와서 패스워드 인증함
+	@RequestMapping("/hm_us_mymanage2") 
+	@ResponseBody 
+	public String currentUserName(Principal principal
+								,@RequestParam("member_pwd")String member_pwd) 
+	{
+		String member_id = principal.getName();
+	
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("member_id", member_id);
+		map.put("member_pwd", member_pwd);
+	
+		boolean result = hm_mymanageservice.checkpwd(map);	 
+		 
+  //result값 처리하고 return
+		System.out.println(result);
+		
+		if(result == true) 
+		{
+			return "hm_us_mymanagedetail";
+		}
+		else {
+			return "hm_us_mymanagedetail2";
+		}
+	}
+
+	
+	
+	
+	//관리자 - 회원관리(전체 리스트)
+	@RequestMapping("/admin_manage")
+	public String adminmembermanage(Model model)
+	{
+		
+		List<MemberDTO> list =hm_mymanageservice.adminmemberlist();
+		model.addAttribute("list",list);
+		return "hm_ad_user_memmanage";
+		
+	}
+	
+	
+	
+	
 	
 	/*
 	

@@ -8,11 +8,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
-import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,10 +77,33 @@ public class TodayLessonController {
              model.addAttribute("logout","logout");
           
           
-          return "/TodayLesson_UserPage/hs_us_main";
-          //return "/TodayLesson_UserPage/hs_us_main_sec_login";
+          return "/TodayLesson_UserPage/hs_us_main_sec_login";
        }
        
+       /*  모달창 실험했던거... 나중에 다시 하기*/
+       /*@RequestMapping("/customlogin")
+       @ResponseBody
+       public String login(String error, String logout,
+    		             HttpServletRequest request, Model model)
+       { 
+    	   
+    	  if (error !=null)
+             model.addAttribute("error", "Please check your ID or Password");
+             
+          if(logout !=null)
+             model.addAttribute("logout","logout");
+          
+          
+          //return "/TodayLesson_UserPage/hs_us_main_sec_login";
+          return "/TodayLesson_UserPage/hs_us_main_sec_logintest";
+       }*/
+       
+       @RequestMapping("/logout")
+       public String logout() {
+    	   return "redirect:/customlogin";
+       }
+    		   
+    		   
        @RequestMapping("/join")
        public String join(HttpServletRequest request, Model model) throws Exception {	   
     	   
