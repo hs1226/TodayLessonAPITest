@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <!--aside nav style-->
-<link rel="stylesheet" href="resources/CSS/hs_ad_main_asidenav.css">
+<link rel="stylesheet" href="resources/CSS/hs_ad_main_leftaside_nav.css">
 <!--aside nav style-->
 
 </head>

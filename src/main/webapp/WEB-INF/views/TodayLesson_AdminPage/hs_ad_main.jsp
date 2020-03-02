@@ -35,10 +35,18 @@
    <header>
       <jsp:include page="hs_ad_main_header.jsp"/>
    </header>
+   
    <section>
       <aside>
-         <jsp:include page="hs_ad_main_asidenav.jsp"/>
+         <jsp:include page="hs_ad_main_leftaside_nav.jsp"/>
       </aside>
+      <c:set var="hs_ad_section_page" value="${param.page}"/>
+         <c:if test="${hs_ad_section_page}!=null">
+            <jsp:include page="${hs_ad_section_page}"/>
+         </c:if>
+         <c:if test="${hs_ad_section_page}==null">
+            <jsp:include page="hs_ad_home_content.jsp"/>
+         </c:if>
    </section>
    <footer>
       <jsp:include page="hs_all_main_footer.jsp"/>

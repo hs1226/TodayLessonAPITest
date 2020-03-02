@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>            
 <!DOCTYPE>
 <html>
 <head>
@@ -33,16 +32,12 @@
 </head>
 <body>
    <header>
-      <jsp:include page="hs_us_main_header.jsp"/>
+      <jsp:include page="hs_sn_main_header.jsp"/>
    </header>
    <section>
-      <c:set var="hs_us_section_page" value="${param.page}"/>
-         <c:if test="${hs_us_section_page}!=null">
-            <jsp:include page="${hs_us_section_page}"/>
-         </c:if>
-         <c:if test="${hs_us_section_page}==null">
-            <jsp:include page="hs_us_home_content.jsp"/>
-         </c:if>
+      <aside>
+         <jsp:include page="hs_sn_main_leftaside_nav.jsp"/>
+      </aside>
    </section>
    <footer>
       <jsp:include page="hs_all_main_footer.jsp"/>
