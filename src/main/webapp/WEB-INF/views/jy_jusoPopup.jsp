@@ -16,7 +16,6 @@
 	String zipNo = request.getParameter("zipNo");
 	String addrDetail = request.getParameter("addrDetail");
 %>
-
 </head>
 
 	
