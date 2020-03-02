@@ -40,12 +40,10 @@ public class LessonDTO {
 	
 	
 	
-	public LessonDTO(int lesson_no, String lesson_title, String lesson_content, int lesson_cost, int lesson_member_max,
+	public LessonDTO(String lesson_title, String lesson_content, int lesson_cost, int lesson_member_max,
 			int lesson_category, String lesson_thumb, String lesson_open_period,
 			String lesson_close_period, int lesson_number, int lesson_type, int lesson_junior_count, int lesson_result,int lesson_readno,
-			String lesson_senior_title, String lesson_senior_content, int lesson_zipcode) {
-		super();
-		this.lesson_no = lesson_no;
+			String lesson_senior_title, String lesson_senior_content) {
 		this.lesson_title = lesson_title;
 		this.lesson_content = lesson_content;
 		this.lesson_cost = lesson_cost;
@@ -61,7 +59,6 @@ public class LessonDTO {
 		this.lesson_readno = lesson_readno;
 		this.lesson_senior_title = lesson_senior_title;
 		this.lesson_senior_content = lesson_senior_content;
-		this.lesson_zipcode = lesson_zipcode;
 	}
 	
 	
