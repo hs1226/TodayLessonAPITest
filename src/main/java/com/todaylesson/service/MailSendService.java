@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.todaylesson.Mapper.MemberMapper;
@@ -55,6 +56,10 @@ public class MailSendService {
 			return init();
 		}
 
+		@Resource(name="passwordEncoder")
+		private BCryptPasswordEncoder encoder;
+		
+		
 		public void mailSendWithPassword(String member_id, String member_email, HttpServletRequest request) {
 			// TODO Auto-generated method stub
 			String key = getKey(false, 6);
@@ -73,7 +78,8 @@ public class MailSendService {
 			} catch (MessagingException e) { 
 				e.printStackTrace();
 			}
-			// 비밀번호 암호화해주는 메서드...?그게 어디있는데ㅡㅡ
+			key=encoder.encode(key);
+			// 비밀번호 암호화
 			/*key = UserSha256.encrypt(key);*/
 			// 데이터 베이스 값은 암호한 값으로 저장시킨다.
 			mapper.searchPassword(member_id, member_email, key);
