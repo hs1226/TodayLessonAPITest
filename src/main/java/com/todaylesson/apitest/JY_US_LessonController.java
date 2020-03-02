@@ -4,14 +4,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class JY_US_LessonController {
 
-	@RequestMapping("write")
+	@RequestMapping("lesson_write")
 	public String write() {
-		return "write";
+		return "jy_lessonwrite";
 	}
 	
 	@RequestMapping("jusoPopup")
 	public String jusoPopup() {
-		return "jusoPopup";
+		return "jy_jusoPopup";
 	}
 	
 }
