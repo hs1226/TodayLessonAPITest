@@ -26,6 +26,9 @@ $(document).ready(function(){
 <input type="password" id="member_pwd" name="member_pwd" placeholder="8~20자 영문숫자 조합">
 <input type ="submit" value="확인">
 <input type ="reset" value="취소">
+<!-- 시큐리티 토큰 -->
+    <input type="hidden" name="${_csrf.parameterName}"
+    value="${_csrf.token}" />
 </form>
 </div>
 </body>

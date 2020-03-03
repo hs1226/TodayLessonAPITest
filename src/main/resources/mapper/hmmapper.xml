@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.todaylesson.Mapper.Hm_Us_MyManageMapper">
-<select id="checkPwd" resultType="boolean" parameterType="HashMap">
+<select id="checkpwd" resultType="boolean" parameterType="HashMap">
 select member_id,member_pwd,member_name,member_nick,member_birth,member_zipcode,member_addr
 ,member_phone,member_email
 from member
