@@ -20,10 +20,10 @@ public class Hm_Us_MyManageServiceImple implements Hm_Us_MyManageService {
 	
 
 	@Override
-	public MemberDTO checkpwd(HashMap<String, Object> map) {
+	public int checkpwd(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		MemberDTO dto = mapper.checkpwd(map);
-		return dto;
+		int result = mapper.checkpwd(map);
+		return result;
 	}
 
 

@@ -8,7 +8,7 @@ import com.todaylesson.DTO.MemberDTO;
 public interface Hm_Us_MyManageService {
 
 
-	public MemberDTO checkpwd(HashMap<String, Object> map);
+	public int checkpwd(HashMap<String, Object> map);
 
 	public List<MemberDTO> adminmemberlist();
 

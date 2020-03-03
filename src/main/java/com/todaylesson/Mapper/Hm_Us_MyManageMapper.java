@@ -10,7 +10,7 @@ import com.todaylesson.DTO.MemberDTO;
 @Mapper
 public interface Hm_Us_MyManageMapper {
 
-	public MemberDTO checkpwd(HashMap<String, Object> map);
+	public int checkpwd(HashMap<String, Object> map);
 
 	public List<MemberDTO> memberlist();
 

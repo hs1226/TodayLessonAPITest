@@ -98,10 +98,11 @@ public class FindPasswordController {
 	
 		map.put("member_id", member_id);
 		map.put("member_pwd", member_pwd);
-		MemberDTO dto = hm_mymanageservice.checkpwd(map);
+		int result = hm_mymanageservice.checkpwd(map);
 
 		System.out.println(member_id);
-		System.out.println(dto.toString());
+		System.out.println(member_pwd);
+		System.out.println(result);
 		
 		return "hm_us_mymanagedetail";
 	
