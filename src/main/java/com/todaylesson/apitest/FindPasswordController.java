@@ -17,6 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,10 @@ public class FindPasswordController {
 	
 	@Autowired
 	   private MailSendService mailSender;
+	
+	@Resource(name="passwordEncoder")
+	private BCryptPasswordEncoder encoder;
+	
 	
 	@RequestMapping("/findPw")
 	public String findPw()
@@ -89,20 +94,25 @@ public class FindPasswordController {
 	{
 		
 		HashMap<String, Object> map = new HashMap<>();
-
+		member_pwd = encoder.encode(member_pwd);
+	
 		map.put("member_id", member_id);
 		map.put("member_pwd", member_pwd);
-		boolean result = hm_mymanageservice.checkpwd(map);
+		MemberDTO dto = hm_mymanageservice.checkpwd(map);
 
 		System.out.println(member_id);
-		System.out.println(result);
-		if(result == true) 
+		System.out.println(dto.toString());
+		
+		return "hm_us_mymanagedetail";
+	
+		
+		/*	if() 
 		{
 			return "hm_us_mymanagedetail";
 		}
 		else {
 			return "hm_us_mymanagedetail2";
-		}
+		}*/
 
 		
 		/*//현재 세션 사용자의 객체가져오기

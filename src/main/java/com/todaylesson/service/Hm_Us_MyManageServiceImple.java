@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.todaylesson.DTO.MemberDTO;
@@ -16,12 +17,13 @@ public class Hm_Us_MyManageServiceImple implements Hm_Us_MyManageService {
 	@Resource(name="hm_Us_MyManageMapper")
 	private Hm_Us_MyManageMapper mapper;
 	
+	
 
 	@Override
-	public boolean checkpwd(HashMap<String, Object> map) {
+	public MemberDTO checkpwd(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		boolean result = mapper.checkpwd(map);
-		return result;
+		MemberDTO dto = mapper.checkpwd(map);
+		return dto;
 	}
 
 
