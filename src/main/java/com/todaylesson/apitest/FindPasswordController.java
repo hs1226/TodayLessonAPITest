@@ -94,10 +94,13 @@ public class FindPasswordController {
 	{
 		
 		HashMap<String, Object> map = new HashMap<>();
-		member_pwd = encoder.encode(member_pwd);//암호화
-	
+		/*member_pwd = encoder.encode(member_pwd);//암호화
+*/	
 		map.put("member_id", member_id);
 		map.put("member_pwd", member_pwd);
+		
+		
+		
 		int result = hm_mymanageservice.checkpwd(map);
 
 		System.out.println(member_id);
