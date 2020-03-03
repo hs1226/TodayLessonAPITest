@@ -13,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,10 +75,67 @@ public class FindPasswordController {
 		
 		return "hm_us_mymanage";
 	}
-	
+
+	//현재 세션 사용자의 객체가져오기
+	/*Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	User user = (User) authentication.getPrincipal();
+
+	*/
+
+
+	@RequestMapping("/hm_us_mymanage2")
+	public String currentUserName(@RequestParam("member_id") String member_id
+								,@RequestParam("member_pwd") String member_pwd)
+	{
+		
+		HashMap<String, Object> map = new HashMap<>();
+
+		map.put("member_id", member_id);
+		map.put("member_pwd", member_pwd);
+		boolean result = hm_mymanageservice.checkpwd(map);
+
+		System.out.println(member_id);
+		System.out.println(result);
+		if(result == true) 
+		{
+			return "hm_us_mymanagedetail";
+		}
+		else {
+			return "hm_us_mymanagedetail2";
+		}
+
+		
+		/*//현재 세션 사용자의 객체가져오기
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = (User) authentication.getPrincipal();
+		String member_id = user.getUsername();
+		System.out.println(member_id);
+		
+		return "hm_us_mymanagedetail";*/
+		
+		/*
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		User member_id = (User) authentication.getPrincipal();
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("member_id", member_id);
+		map.put("member_pwd", member_pwd);
+		boolean result = hm_mymanageservice.checkpwd(map);
+		
+		System.out.println(member_id);
+		System.out.println(result);
+		if(result == true) 
+		{
+			return "hm_us_mymanagedetail";
+		}
+		else {
+			return "hm_us_mymanagedetail2";
+		}*/
+
+	}
 	
 	//내정보관리 로그인된 아이디값을 시큐리티에서 가져와서 패스워드 인증함
-	@RequestMapping("/hm_us_mymanage2") 
+	/*@RequestMapping("/hm_us_mymanage2") 
 	@ResponseBody 
 	public String currentUserName(Principal principal
 								,@RequestParam("member_pwd")String member_pwd) 
@@ -98,7 +159,7 @@ public class FindPasswordController {
 		else {
 			return "hm_us_mymanagedetail2";
 		}
-	}
+	}*/
 
 	
 	
