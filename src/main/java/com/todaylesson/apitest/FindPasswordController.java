@@ -94,7 +94,7 @@ public class FindPasswordController {
 	{
 		
 		HashMap<String, Object> map = new HashMap<>();
-		member_pwd = encoder.encode(member_pwd);
+		member_pwd = encoder.encode(member_pwd);//¾ÏÈ£È­
 	
 		map.put("member_id", member_id);
 		map.put("member_pwd", member_pwd);
