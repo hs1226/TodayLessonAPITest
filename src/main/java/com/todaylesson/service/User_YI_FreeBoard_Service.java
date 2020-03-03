@@ -9,4 +9,6 @@ public interface User_YI_FreeBoard_Service {
 
 	public List<SQLjoin_Member_FreeBoardDTO> freeboard_list();
 
+	public SQLjoin_Member_FreeBoardDTO freeboard_detail(int freeboard_no);
+
 }

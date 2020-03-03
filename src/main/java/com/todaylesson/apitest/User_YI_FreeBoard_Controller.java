@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.todaylesson.DTO.FreeBoardDTO;
@@ -26,4 +27,11 @@ public class User_YI_FreeBoard_Controller {
 		return "yi_freeboard";
 	}
 	
+	@RequestMapping("/detail/{freeboard_no}")
+	public String detail(@PathVariable int freeboard_no,Model model)
+	{
+		SQLjoin_Member_FreeBoardDTO dto= service.freeboard_detail(freeboard_no);
+		model.addAttribute("dto",dto);
+		return "yi_freeboard_detail";
+	}
 }

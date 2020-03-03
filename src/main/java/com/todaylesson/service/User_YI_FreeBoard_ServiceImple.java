@@ -23,4 +23,10 @@ public class User_YI_FreeBoard_ServiceImple implements User_YI_FreeBoard_Service
 		return mapper.freeboard_list();
 	}
 
+	@Override
+	public SQLjoin_Member_FreeBoardDTO freeboard_detail(int freeboard_no) {
+		// TODO Auto-generated method stub
+		return mapper.freeboard_detail(freeboard_no);
+	}
+
 }

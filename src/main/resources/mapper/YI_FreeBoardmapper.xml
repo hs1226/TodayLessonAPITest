@@ -23,4 +23,12 @@ from freeboard join member
 on freeboard.member_id = member.member_id
 </select>
 
+<select id="freeboard_detail" parameterType="int" resultMap="freeboardMap">
+select freeboard_category,member_nick,freeboard_no
+,freeboard_title,freeboard_writedate,freeboard_content
+from freeboard join member
+on freeboard.member_id = member.member_id
+where freeboard_no=#{freeboard_no}
+</select>
+
 </mapper>

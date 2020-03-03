@@ -19,7 +19,7 @@
 <tr>
 <td>${item.freeboard_category }</td>
 <td>${item.freeboard_no}</td>
-<td><c:out value="${item.freeboard_title }"/></td>
+<td><a href="detail/${item.freeboard_no }">${item.freeboard_title }</a></td>
 <td><c:out value=" ${item.member_nick }"></c:out></td>
 <td><c:out value=" ${item.freeboard_writedate }"></c:out></td>
 <td><c:out value=" ${item.freeboard_readno }"></c:out></td>
@@ -29,6 +29,12 @@
 </c:forEach>
 </table>
 
-<a href="freeboard_write">글쓰기</a>
+  <sec:authorize access="isAuthenticated()">
+                 <!--  <form action="/logout" method='post'> -->
+                     <input type="hidden"name="${_csrf.parameterName}"value="${_csrf.token}"/>  <!-- 이걸  main 페이지에 넣어서 구분을   -->
+                     <a href="freeboard_write">글쓰기</a><span style="margin-left: 10px;">
+                 <!--  </form> -->
+               </sec:authorize>
+
 </body>
 </html>
