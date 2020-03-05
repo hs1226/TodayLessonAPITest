@@ -33,8 +33,8 @@
 </li>
 </ul>
 <!-- 시큐리티 토큰 -->
-    <input type="hidden" name="${_csrf.parameterName}"
-    value="${_csrf.token}" />
+    <%-- <input type="hidden" name="${_csrf.parameterName}"
+    value="${_csrf.token}" /> --%>
 </form>
 </body>
 </html>

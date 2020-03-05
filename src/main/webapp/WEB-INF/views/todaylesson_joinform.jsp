@@ -29,8 +29,8 @@
 <div class="alert alert-success" id="alert-success2">인증번호가 일치합니다.</div>
 <div class="alert alert-danger" id="alert-danger2">인증번호가 일치하지않습니다.</div>
 
- <input type="hidden" name="${_csrf.parameterName}"
-    value="${_csrf.token}" />
+ <%-- <input type="hidden" name="${_csrf.parameterName}"
+    value="${_csrf.token}" /> --%>
 </form>
 <form method="post" action="/joinresult">
 <input type="hidden" name="phone" value="${to }"/>
@@ -139,8 +139,8 @@ $(function(){
 });
 
 $('#multicheck').click(function() {
-	var csrfHeaderName ="${_csrf.headerName}";
-	var csrfTokenValue = "${_csrf.token}"; 
+	/* var csrfHeaderName ="${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";  */
 	
 	if($("#id").val() == ""){
 		alert("아이디를 입력하세요");
@@ -153,9 +153,9 @@ $('#multicheck').click(function() {
 		type :'POST',
 		url : 'idCheck',
 		data : {"id" : $('#id').val()},
-		beforeSend : function(xhr){
+		/* beforeSend : function(xhr){
 			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-		},
+		}, */
 		success : function(data) {
 			console.log("data : "+ data);
 			if(data == 0){

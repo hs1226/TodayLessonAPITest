@@ -6,7 +6,12 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
    <security:http pattern="/resources/CSS/**" security="none"/>
+   <security:http pattern="/resources/FONT/**" security="none"/>
+   <security:http pattern="/resources/IMG/**" security="none"/>
    <security:http pattern="/resources/JS/**" security="none"/>
+   
+   <bean id="ifpCsrfRequestMatcher" class="com.todaylesson.csrf.IfpCsrfRequestMatcher"/>
+   <bean id="ifpAccessDeniedHandler" class="com.todaylesson.csrf.IfpAccessDeniedHandler"/>
 
    <security:http use-expressions="true">
 
@@ -18,7 +23,10 @@
  
       <security:form-login login-page="/customlogin"/> 
       <security:logout  logout-success-url="/customlogin" logout-url="/logout" invalidate-session="true"  delete-cookies="id"/>
-      <security:remember-me  remember-me-cookie="id" token-validity-seconds="300"/> 
+      <security:remember-me  remember-me-cookie="id" token-validity-seconds="300"/>
+      
+      <security:csrf request-matcher-ref="ifpCsrfRequestMatcher"/>
+      <security:access-denied-handler ref="ifpAccessDeniedHandler"/>
   
    </security:http>
 

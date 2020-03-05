@@ -45,6 +45,19 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
     <!-- Filter springSecurity -->
+    
+    <!-- Filter csrf  -->
+    <filter>
+		<filter-name>csrfFilter</filter-name>
+		<filter-class>com.todaylesson.csrf.CsrfTokenAdder</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>csrfFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+    <!-- Filter csrf  -->
+    
     <!-- Filter -->
 
 	<!-- Processes application requests -->

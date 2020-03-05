@@ -31,8 +31,8 @@ $(document).ready(function() {
 	// 1. 모달창 히든 불러오기
 	$('#searchBtn').click(function() {
 		//시큐리티 csrf토큰
-		var csrfHeaderName ="${_csrf.headerName}";
-		var csrfTokenValue = "${_csrf.token}"; 
+		/* var csrfHeaderName ="${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}"; */ 
 		
 		$('#background_modal').show();
 		
@@ -44,9 +44,9 @@ $(document).ready(function() {
 				type:"POST",
 				url:"${pageContext.request.contextPath}/userSearch?inputName_1="
 						+$('#inputName_1').val()+"&inputPhone_1="+$('#inputPhone_1').val(),
-						beforeSend : function(xhr){
+						/* beforeSend : function(xhr){
 							xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-						},
+						}, */
 				success:function(data){
 					if(data == 0){
 						$('#id_value').text("회원 정보를 확인해주세요!");	
@@ -66,8 +66,8 @@ $(document).ready(function() {
 	
 	$('#searchBtn2').click(function() {
 		//시큐리티 csrf토큰
-		var csrfHeaderName ="${_csrf.headerName}";
-		var csrfTokenValue = "${_csrf.token}"; 
+		/* var csrfHeaderName ="${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";  */
 		
 		$('#background_modal').show();
 		
@@ -79,9 +79,9 @@ $(document).ready(function() {
 				type:"POST",
 				url:"${pageContext.request.contextPath}/searchPassword?inputId_2="
 						+$('#inputId_2').val()+"&inputEmail_2="+$('#input_2').val(),
-						beforeSend : function(xhr){
+						/* beforeSend : function(xhr){
 							xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-						},
+						}, */
 				success:function(data){
 					if(data == 0){
 						$('#id_value').text("회원 정보를 확인해주세요!");	

@@ -75,17 +75,17 @@ function addr(roadAddrPart1) {
 
 	
 	//시큐리티 csrf토큰
-	var csrfHeaderName ="${_csrf.headerName}";
-	var csrfTokenValue = "${_csrf.token}"; 
+	/* var csrfHeaderName ="${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";  */
 	
 	
 	$.ajax({
 		//여기엔 우리가 요청하는 정보들이 들어감
 		method : "GET",
 		url : "https://dapi.kakao.com/v2/local/search/address.json",
-		beforeSend : function(xhr){
+		/* beforeSend : function(xhr){
 			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-		},
+		}, */
 		data : {
 				query : roadAddrPart1
 		},
@@ -149,7 +149,7 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 <form method="post" action="${pageContext.request.contextPath }/insert_result"> 
 
 
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
     
     
 <label for="lesson_title">레슨명</label><br>

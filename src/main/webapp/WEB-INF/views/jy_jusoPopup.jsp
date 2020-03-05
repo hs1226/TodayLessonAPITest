@@ -49,7 +49,7 @@ function init(){
 
 <body onload="init();">
 	<form id="form" name="form" method="post">
-	    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 		<input type="hidden" id="confmKey" name="confmKey" value="devU01TX0FVVEgyMDIwMDIyNzEwMzUzNTEwOTUwMDM=" /> 
 		<input type="hidden" id="returnUrl" name="returnUrl" value="${pageContext.request.contextPath }/write" />
 		<input type="hidden" id="resultType" name="resultType" value="4" /> 

@@ -27,8 +27,8 @@ $(document).ready(function(){
 <input type ="submit" value="확인">
 <input type ="reset" value="취소">
 <!-- 시큐리티 토큰 -->
-    <input type="hidden" name="${_csrf.parameterName}"
-    value="${_csrf.token}" />
+    <%-- <input type="hidden" name="${_csrf.parameterName}"
+    value="${_csrf.token}" /> --%>
 </form>
 </div>
 </body>
