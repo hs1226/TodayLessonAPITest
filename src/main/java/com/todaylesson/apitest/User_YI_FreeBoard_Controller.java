@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.todaylesson.DTO.FreeBoardDTO;
 import com.todaylesson.DTO.SQLjoin_Member_FreeBoardDTO;
@@ -19,7 +20,7 @@ public class User_YI_FreeBoard_Controller {
 	@Resource(name="user_YI_FreeBoard_Service")
 	private User_YI_FreeBoard_Service service;
 	
-	@RequestMapping("/freeboard")
+	@RequestMapping(value="/freeboard", method=RequestMethod.GET)
 	public String list(Model model)
 	{
 		List<SQLjoin_Member_FreeBoardDTO> list=service.freeboard_list();

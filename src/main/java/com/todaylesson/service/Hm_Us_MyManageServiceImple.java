@@ -1,11 +1,11 @@
 package com.todaylesson.service;
 
-import java.util.HashMap;
+
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Service;
 
 import com.todaylesson.DTO.MemberDTO;
@@ -17,14 +17,6 @@ public class Hm_Us_MyManageServiceImple implements Hm_Us_MyManageService {
 	@Resource(name="hm_Us_MyManageMapper")
 	private Hm_Us_MyManageMapper mapper;
 	
-	
-
-	@Override
-	public int checkpwd(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		int result = mapper.checkpwd(map);
-		return result;
-	}
 
 
 	@Override
@@ -32,6 +24,14 @@ public class Hm_Us_MyManageServiceImple implements Hm_Us_MyManageService {
 		// TODO Auto-generated method stub
 		return mapper.memberlist();
 		
+	}
+
+
+
+	@Override
+	public MemberDTO MyInfolist(String member_id) {
+		// TODO Auto-generated method stub
+		return mapper.myinfolist(member_id);
 	}
 
 }

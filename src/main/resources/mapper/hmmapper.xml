@@ -3,10 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.todaylesson.Mapper.Hm_Us_MyManageMapper">
-<select id="checkpwd" resultType="int" parameterType="HashMap">
+<!-- <select id="checkpwd" resultType="int" parameterType="HashMap">
 select count(*)
 from member
 where member_id = #{member_id} and member_pwd = #{member_pwd} 
+</select> -->
+
+<select  id="myinfolist" parameterType="String" resultType="com.todaylesson.DTO.MemberDTO">
+select member_id,member_pwd,member_name,member_nick,member_birth,member_zipcode,member_addr,member_phone,member_email
+from member
+where member_id=#{member_id}
 </select>
 
 <select id="memberlist" resultType="com.todaylesson.DTO.MemberDTO">
