@@ -22,8 +22,7 @@
 		});
 		
 		$('#multicheck').click(function() {
-			var csrfHeaderName ="${_csrf.headerName}";
-			var csrfTokenValue = "${_csrf.token}"; 
+
 			
 			if($("#id").val() == ""){
 				alert("아이디를 입력하세요");
@@ -36,9 +35,7 @@
 				type :'POST',
 				url : 'idCheck',
 				data : {"id" : $('#id').val()},
-				beforeSend : function(xhr){
-					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-				},
+
 				success : function(data) {
 					console.log("data : "+ data);
 					if(data == 0){

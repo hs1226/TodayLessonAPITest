@@ -31,6 +31,7 @@
 
  <%-- <input type="hidden" name="${_csrf.parameterName}"
     value="${_csrf.token}" /> --%>
+    <input type="hidden" id="authNum" value="${auth_num}">
 </form>
 <form method="post" action="/joinresult">
 <input type="hidden" name="phone" value="${to }"/>
@@ -113,130 +114,9 @@ onkeyup="passwordCheckFunction();"
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 	<script type="text/javascript" src="resources/JS/yi_findAddr.js"></script>
+<script type="text/javascript" src="resources/JS/todaylesson_join.js"></script>
+<script type="text/javascript" src="resources/JS/ej_smscheck.js"></script>
 
-<script>
-$(function(){
-	$("#alert-success").hide();
-	$("#alert-danger").hide();
-	$("input").keyup(function() {
-		var pwd1 = $("#pwd").val();
-		var pwd2 = $("#pwdcheck").val();
-		if (pwd1 != "" || pwd2 != "") {
-			if (pwd1 == pwd2) {
-				$("#alert-success").show();
-				$("#alert-danger").hide();
-				$("#submit").removeAttr("disabled");
-			} else {
-				$("#alert-success").hide();
-				$("#alert-danger").show();
-				$("#submit").attr("disabled", "disabled");
-			}
-		}
-	});
-
-	$("input")
-
-});
-
-$('#multicheck').click(function() {
-	/* var csrfHeaderName ="${_csrf.headerName}";
-	var csrfTokenValue = "${_csrf.token}";  */
-	
-	if($("#id").val() == ""){
-		alert("아이디를 입력하세요");
-		return;
-	}
-	
-	$.ajax({
-		
-		
-		type :'POST',
-		url : 'idCheck',
-		data : {"id" : $('#id').val()},
-		/* beforeSend : function(xhr){
-			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-		}, */
-		success : function(data) {
-			console.log("data : "+ data);
-			if(data == 0){
-				$('#checkMsg').html('<p style="color:blue">사용가능</p>');
-				$("#submit").removeAttr("disabled");
-        	}
-        	else{
-            	$('#checkMsg').html('<p style="color:red">사용불가능</p>');
-            	$("#submit").attr("disabled", "disabled");
-            	$('#id').val('');
-                $('#id').focus();
-        	}
-    	},
-		error : function(data) {
-			console.log(data);
-			console.log("ajax error");
-		}
-	});
-});
-
-
-</script>	
-	
-	
- 
-<script>
-/* 인증번호 */
-	$("#alert-success2").hide();
-	$("#alert-danger2").hide();
-	
-    $("#sendSMS").on('click',function(){
-       
-        var result = Math.floor(Math.random() * 1000000)+100000;
-        if(result>1000000){
-           result = result - 100000;
-        }
-        
-      document.getElementById('text2').value= null;
-       document.getElementById('text2').value = result;
-       var result2 = document.getElementById('text2').value;
-      console.log("hidden : "+ result2);
-      
-        console.log("문자를 전송합니다.");
-         console.log(" 인증번호:"+result);
-         $("#smsForm").attr("action",  "join"); //위에 있는 폼태그를 컨트롤러로 전송한다.
-         $("#smsForm").submit();  
-       
-       
-    })
-        
- 
-     </script>
-  <script>
-
-/* 	$( */function smscheckfunction() {
-			$("#alert-success2").hide();
-			$("#alert-danger2").hide();
-			$("#numcheck").keyup(function() {
-				var authnum =${auth_num}; 
-				console.log("authnum:"+authnum)
-				var numcheck = $("#numcheck").val();
-				console.log("numcheck:",numcheck);
-				if (authnum != "" || numcheck != "") {
-					if (authnum == numcheck) {
-						$("#alert-success2").show();
-						$("#alert-danger2").hide();
-						$("#submit").removeAttr("disabled");
-					} else {
-						$("#alert-success2").hide();
-						$("#alert-danger2").show();
-						$("#submit").attr("disabled", "disabled");
-						}
-				}
-			});
-
-
-		}/* );  */
-	
-	
-	
-	</script>
 
 
 <!-- Optional JavaScript -->
