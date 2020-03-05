@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
-
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -49,6 +49,7 @@ public class FindPasswordController {
 	}
 	@Resource(name="hm_us_mymanage")
 	private Hm_Us_MyManageService hm_mymanageservice;
+	
 	
 	@RequestMapping(value="/findPassword",method=RequestMethod.POST)
 	@ResponseBody
@@ -114,76 +115,47 @@ public class FindPasswordController {
 			
 			return "hm_us_mymanage";
 		}
-		
-	
-		
-		/*	if() 
-		{
-			return "hm_us_mymanagedetail";
-		}
-		else {
-			return "hm_us_mymanagedetail2";
-		}*/
-
-		
-		/*//현재 세션 사용자의 객체가져오기
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user = (User) authentication.getPrincipal();
-		String member_id = user.getUsername();
-		System.out.println(member_id);
-		
-		return "hm_us_mymanagedetail";*/
-		
-		/*
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
-		User member_id = (User) authentication.getPrincipal();
-		HashMap<String, Object> map = new HashMap<>();
-		
-		map.put("member_id", member_id);
-		map.put("member_pwd", member_pwd);
-		boolean result = hm_mymanageservice.checkpwd(map);
-		
-		System.out.println(member_id);
-		System.out.println(result);
-		if(result == true) 
-		{
-			return "hm_us_mymanagedetail";
-		}
-		else {
-			return "hm_us_mymanagedetail2";
-		}*/
-
 	}
 	
-	//내정보관리 로그인된 아이디값을 시큐리티에서 가져와서 패스워드 인증함
-	/*@RequestMapping("/hm_us_mymanage2") 
-	@ResponseBody 
-	public String currentUserName(Principal principal
-								,@RequestParam("member_pwd")String member_pwd) 
+	//내정보 수정
+	@RequestMapping("/hm_us_mymanageupdate")
+	public String hmusmymanageupdate(@RequestParam("member_id") String member_id
+									,@RequestParam("member_pwd") String member_pwd
+									,@RequestParam("member_name") String member_name
+									,@RequestParam("member_birth") String member_birth
+									,@RequestParam("member_email") String member_email
+									,@RequestParam("member_phone") String member_phone
+									,@RequestParam("member_zipcode") int member_zipcode
+									,@RequestParam("addrselect") int addrselect
+									,@RequestParam("roadaddr") String roadaddr
+									,@RequestParam("jibunaddr") String jibunaddr
+									,@RequestParam("detailaddr") String detailaddr
+									,@RequestParam("member_nick") String member_nick
+									,MemberDTO dto, Model model)
 	{
-		String member_id = principal.getName();
-	
-		HashMap<String, Object> map = new HashMap<>();
 		
-		map.put("member_id", member_id);
-		map.put("member_pwd", member_pwd);
-	
-		boolean result = hm_mymanageservice.checkpwd(map);	 
-		 
-  //result값 처리하고 return
-		System.out.println(result);
+		dto.setMember_id(member_id);
+		dto.setMember_pwd(member_pwd);
+		dto.setMember_name(member_name);
+		dto.setMember_birth(member_birth);
+		dto.setMember_email(member_email);
+		dto.setMember_phone(member_phone);
+		dto.setMember_zipcode(member_zipcode);
+		dto.setMember_nick(member_nick);
 		
-		if(result == true) 
-		{
-			return "hm_us_mymanagedetail";
-		}
-		else {
-			return "hm_us_mymanagedetail2";
-		}
-	}*/
+		String fulladdr= "";	
+		if(addrselect==0)
+		{fulladdr=roadaddr;}
+		else
+		{fulladdr=jibunaddr;}
+		
+		dto.setMember_addr(fulladdr+" "+detailaddr);
+		
+		int result = hm_mymanageservice.MyInfoupdate(dto);
+		model.addAttribute("result",result);
 
-	
-	
+		return "hm_us_mymanageupdateresult";
+	}
 	
 	//관리자 - 회원관리(전체 리스트)
 	@RequestMapping("/admin_manage")
@@ -200,35 +172,6 @@ public class FindPasswordController {
 	
 	
 	
-	/*
-	
-	
-	//솔이언니가 준거
-	@Autowired
-	   private JavaMailSenderImpl mailSender;
-	   
-	   @RequestMapping("/sendmail")
-	   public String sendmail() {
-	      final MimeMessagePreparator pp = new MimeMessagePreparator() {
-			
-	         
-	         @Override
-	         public void prepare(MimeMessage mimeMessage) throws Exception {
-	            final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
-	            helper.setFrom("todaylesson@naver.com");
-	            helper.setTo("todaylesson@naver.com");
-	            helper.setSubject("안녕");
-	            helper.setText("<b>은별이~~~~~~~~~~~~~~</b>"
-	                  + "<br>"
-	                  + "<img src="+"https://ssl.pstatic.net/tveta/libs/1260/1260649/19aabf7c9a09e0d9ed84_20200211140438611.jpg"+">", true);
-	         }
-	      };
-	      
-	      mailSender.send(pp);
-	      return "sendmail";
-	   }
-*/
-
 	
 	
 }

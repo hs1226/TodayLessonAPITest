@@ -15,6 +15,9 @@ public interface Hm_Us_MyManageMapper {
 
 	public MemberDTO myinfolist(String member_id);
 
+	public int myinfoupdate(MemberDTO dto);
+
+
 	
 	
 }

@@ -34,4 +34,16 @@ public class Hm_Us_MyManageServiceImple implements Hm_Us_MyManageService {
 		return mapper.myinfolist(member_id);
 	}
 
+
+
+	@Override
+	public int MyInfoupdate(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return mapper.myinfoupdate(dto);
+	}
+
+
+
+
+
 }

@@ -14,4 +14,8 @@ public interface Hm_Us_MyManageService {
 
 	public MemberDTO MyInfolist(String member_id);
 
+	public int MyInfoupdate(MemberDTO dto);
+
+	
+
 }
