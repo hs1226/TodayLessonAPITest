@@ -21,7 +21,7 @@ public class User_YI_FreeBoard_Controller {
 	private User_YI_FreeBoard_Service service;
 	
 	@RequestMapping(value="/freeboard", method=RequestMethod.GET)
-	public String list(Model model,)
+	public String list(Model model)
 	{
 		List<SQLjoin_Member_FreeBoardDTO> list=service.freeboard_list();
 		model.addAttribute("list",list);

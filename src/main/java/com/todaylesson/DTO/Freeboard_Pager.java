@@ -4,6 +4,9 @@ package com.todaylesson.DTO;
 public class Freeboard_Pager {
 //Freeboard 페이징처리
 	
+	public static final int PAGE_SCALE = 15;
+	public static final int BLOCK_SCALE = 5;
+	
 	private int totalPage;
 	private int curPage;
 	private int prevPage;
@@ -19,7 +22,7 @@ public class Freeboard_Pager {
 	private int blockBegin;
 	private int blockEnd;
 	
-	private int displayPageNum= 15;
+	
 	
 	//생성자
 	public Freeboard_Pager(int count, int curPage)
@@ -27,17 +30,47 @@ public class Freeboard_Pager {
 		curBlock=1;
 		this.curPage= curPage;
 		setTotalPage(count); //전체 페이지 갯수 계산
-		//setPageRange();
-		//setTotalBlock(); //전체 페이지 블록 갯수 계산
-		//setBlockRange(); // 페이지 블록의 시작, 끝 번호 계산
+		setPageRange();
+		setTotalBlock(); //전체 페이지 블록 갯수 계산
+		setBlockRange(); // 페이지 블록의 시작, 끝 번호 계산
+	}
+
+	public void setBlockRange() {
+		// 현재 페이지가 몇번째 페이지 블록에 속하는 지 계산
+		curBlock = (int)Math.ceil((curPage-1) / BLOCK_SCALE)+1;
+		
+		//현재 페이지 블록의 시작, 끝 번호 계산
+		blockBegin = (curBlock-1)*BLOCK_SCALE+1;
+		
+		//페이지 블록의 끝번호
+		blockEnd = blockBegin+BLOCK_SCALE-1;
+		
+		//마지막 블록이 범위를 초과하지 않도록 계산
+		if(blockEnd > totalPage) blockEnd = totalPage;
+		
+		// 이전,다음을 눌렀을 때 이동할 페이지 번호
+		prevPage = (curPage ==1)? 1:(curBlock-1)*BLOCK_SCALE;
+		nextPage = curBlock > totalBlock ? (curBlock * BLOCK_SCALE) : (curBlock*BLOCK_SCALE);
+		
+		//마지막 페이지가 범위를 초과하지 않도록 처리
+		if(nextPage >= totalPage) nextPage = totalPage;
+	}
+	
+	public void setPageRange() {
+		
+		//시작번호 = (현재페이지 -1) * 페이지당 게시물 수 + 1
+		pageBegin = (curPage-1)*PAGE_SCALE+1;
+		
+		//끝번호 = 시작번호 + 페이지당 게시물 수 -1
+		pageEnd = pageBegin+PAGE_SCALE-1;
 	}
 
 	public int getTotalPage() {
 		return totalPage;
 	}
 
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
+	public void setTotalPage(int count) {
+		totalPage = (int)Math.ceil(count*1.0/PAGE_SCALE);
 	}
 
 	public int getCurPage() {
@@ -68,8 +101,8 @@ public class Freeboard_Pager {
 		return totalBlock;
 	}
 
-	public void setTotalBlock(int totalBlock) {
-		this.totalBlock = totalBlock;
+	public void setTotalBlock() {
+		totalBlock = (int)Math.ceil(totalPage / BLOCK_SCALE);
 	}
 
 	public int getCurBlock() {
@@ -127,12 +160,5 @@ public class Freeboard_Pager {
 	public void setBlockEnd(int blockEnd) {
 		this.blockEnd = blockEnd;
 	}
-
-	public int getDisplayPageNum() {
-		return displayPageNum;
-	}
-
-	public void setDisplayPageNum(int displayPageNum) {
-		this.displayPageNum = displayPageNum;
-	}
+	
 }
