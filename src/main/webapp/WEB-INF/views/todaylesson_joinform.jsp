@@ -204,7 +204,7 @@ $('#multicheck').click(function() {
          $("#smsForm").submit();  
        
        
-    });
+    })
         
  
      </script>
