@@ -35,4 +35,13 @@ sysdate(),#{lesson_open_period},#{lesson_close_period},#{lesson_number},
 
 
 
+<!-- 테스트 -->
+
+
+<!-- 게시판 insert -->
+<insert id="insertBoard" parameterType="com.todaylesson.DTO.TestboardDTO">
+	INSERT INTO testboard (title, content)
+				VALUES (#{title}, #{content})
+</insert>
+
 </mapper>

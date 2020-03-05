@@ -146,21 +146,21 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 
 
 
-<form method="post" action="${pageContext.request.contextPath }/jy_insertresult"> 
+<form method="post" action="${pageContext.request.contextPath }/insert_result"> 
 
 
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     
     
 <label for="lesson_title">레슨명</label><br>
-<input type="text" id="lesson_title" id="lesson_title"><br>
+<input type="text" id="lesson_title" name="lesson_title"><br>
 
 
 <label for="lesson_content">레슨 내용</label><br>
 <textarea id="summernote" name="lesson_content"></textarea><br>
 
 <label for="lesson_member_max">수강생수</label><br>
-<input type="number" id="lesson_member_max" id="lesson_member_max"><br>
+<input type="number" id="lesson_member_max" name="lesson_member_max"><br>
 
 <label for="lesson_category">카테고리</label><br>
 <select name="lesson_category">
@@ -174,16 +174,16 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 <br>
 
 <label for="lesson_cost">가격</label><br>
-<input type="number" id="lesson_cost" id="lesson_cost"><br>
+<input type="number" id="lesson_cost" name="lesson_cost"><br>
 
 <label for="lesson_open_period">시작일</label><br>
-<input type="date" id="lesson_open_period" id="lesson_open_period"><br>
+<input type="date" id="lesson_open_period" name="lesson_open_period"><br>
 
 <label for="lesson_close_period">종료일</label><br>
-<input type="date" id="lesson_close_period" id="lesson_close_period"><br>
+<input type="date" id="lesson_close_period" name="lesson_close_period"><br>
 
 <label for="lesson_type">레슨타입</label><br>
-<select name="lesson_type" id="lesson_type">
+<select id="lesson_type" name="lesson_type">
   <option value="0">---</option>
   <option value="1">원데이 레슨</option>
   <option value="2">다회성 레슨</option>
@@ -197,7 +197,7 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 
 
 <label for="lesson_time">레슨시간</label><br>
-<input type="time" id="lesson_time" id="lesson_time"><br>
+<input type="time" id="lesson_time" name="lesson_time"><br>
 
 <label>레슨주소</label><br>
 우편번호<br>
