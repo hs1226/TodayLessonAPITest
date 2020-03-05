@@ -114,7 +114,7 @@ onkeyup="passwordCheckFunction();"
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 	<script type="text/javascript" src="resources/JS/yi_findAddr.js"></script>
-<script type="text/javascript" src="resources/JS/todaylesson_join.js"></script>
+<script type="text/javascript" src="resources/JS/yi_todaylesson_join.js"></script>
 <script type="text/javascript" src="resources/JS/ej_smscheck.js"></script>
 
 
