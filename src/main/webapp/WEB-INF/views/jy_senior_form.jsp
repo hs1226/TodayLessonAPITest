@@ -13,7 +13,7 @@
 <script>
 	
 	function senior_switch(){
-		opener.location.href="${pageContext.request.contextPath}/senior_switch";
+		opener.location.href="${pageContext.request.contextPath}/senior_switch/${pageContext.request.userPrincipal.name}";
 		
 		self.close();
 	}	

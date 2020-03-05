@@ -11,7 +11,7 @@
 <h2>시니어 지원하기</h2>
 <form method="post" action="${pageContext.request.contextPath}/plus_senior">
 
-<input type="hidden" id="member_id" name="member_id" value="">
+<input type="hidden" id="member_id" name="member_id" value="${pageContext.request.contextPath}">
 
 <label>시니어 닉네임</label>
 <input type="text" id="senior_nick" name="senior_nick">
