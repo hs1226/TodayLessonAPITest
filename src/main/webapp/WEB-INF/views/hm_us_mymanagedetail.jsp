@@ -45,7 +45,7 @@ onkeyup="passwordCheckFunction();"><br>
 					<div class='juso'>
 						<input type="text" id="sample4_roadAddress"  value="${dto.member_addr}"
 							name="roadaddr" readonly="readonly" class="form-control">
-						<input type="radio" id='roadAddress' name='addrselect'
+						<input type="radio" id='roadAddress' name='addrselect' value="0"
 							required><label for="addrselect">도로명주소 선택</label> <br>
 
 						<input type="text" id="sample4_jibunAddress" placeholder="지번주소"
@@ -59,9 +59,7 @@ onkeyup="passwordCheckFunction();"><br>
 <label>닉네임</label>
 <input type="text" name="member_nick" value="${dto.member_nick}"><br>
 <button type="submit" id="submit" class="btn btn-primary">정보 수정</button><br>
-<!-- 시큐리티 토큰 -->
-    <input type="hidden" name="${_csrf.parameterName}"
-    value="${_csrf.token}" />
+
 </form>
 
 

@@ -134,6 +134,7 @@ public class FindPasswordController {
 									,MemberDTO dto, Model model)
 	{
 		
+		member_pwd=encoder.encode(member_pwd);
 		dto.setMember_id(member_id);
 		dto.setMember_pwd(member_pwd);
 		dto.setMember_name(member_name);
