@@ -18,6 +18,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,7 @@ public class FindPasswordController {
 	
 	@Resource(name="passwordEncoder")
 	private BCryptPasswordEncoder encoder;
+	
 	
 	
 	@RequestMapping("/findPw")
@@ -90,24 +92,29 @@ public class FindPasswordController {
 
 	@RequestMapping("/hm_us_mymanage2")
 	public String currentUserName(@RequestParam("member_id") String member_id
-								,@RequestParam("member_pwd") String member_pwd)
+			,@RequestParam("member_pwd") String member_pwd
+			,Model model)
 	{
 		
-		HashMap<String, Object> map = new HashMap<>();
-		/*member_pwd = encoder.encode(member_pwd);//¾ÏÈ£È­
-*/	
-		map.put("member_id", member_id);
-		map.put("member_pwd", member_pwd);
-		
-		
-		
-		int result = hm_mymanageservice.checkpwd(map);
 
-		System.out.println(member_id);
+	    String encoded_pwd=encoder.encode(member_pwd);
+	    boolean result=encoder.matches(member_pwd , encoded_pwd);
+	    
+		
 		System.out.println(member_pwd);
 		System.out.println(result);
 		
-		return "hm_us_mymanagedetail";
+		if(result==true)
+		{
+			MemberDTO dto = hm_mymanageservice.MyInfolist(member_id);
+			model.addAttribute("dto",dto);
+			return "hm_us_mymanagedetail";
+		}
+		else {
+			
+			return "hm_us_mymanage";
+		}
+		
 	
 		
 		/*	if() 
